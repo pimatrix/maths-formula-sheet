@@ -84,7 +84,6 @@ export async function POST(req) {
       responseMimeType: "application/json",
       temperature: 0.2,
       maxOutputTokens: 1500,
-      thinkingConfig: { thinkingBudget: 0 },
     },
   };
 
