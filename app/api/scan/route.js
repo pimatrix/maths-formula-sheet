@@ -8,6 +8,59 @@ export const maxDuration = 60;
 const MODELS = ["gemini-3.5-flash-lite", "gemini-3.8-flash"];
 const TIMEOUTS = [25000, 30000];
 
+const LATEX_CMDS = new Set([
+  "frac", "sqrt", "alpha", "beta", "gamma", "Gamma", "delta", "Delta",
+  "epsilon", "zeta", "eta", "theta", "Theta", "iota", "kappa", "lambda",
+  "Lambda", "mu", "nu", "xi", "pi", "Pi", "rho", "sigma", "Sigma", "tau",
+  "phi", "Phi", "chi", "psi", "omega", "Omega", "int", "oint", "sum",
+  "prod", "infty", "partial", "pm", "mp", "leq", "geq", "neq", "approx",
+  "equiv", "to", "rightarrow", "leftarrow", "times", "cdot", "div", "in",
+  "notin", "subset", "cup", "cap", "forall", "exists", "angle", "degree",
+  "prime", "nabla", "sin", "cos", "tan", "cot", "sec", "cosec", "sinh",
+  "cosh", "tanh", "log", "ln", "lim", "det", "adj", "mod", "arg", "max",
+  "min",
+]);
+
+// Models often emit LaTeX inside JSON strings without escaping the
+// backslashes, which breaks JSON.parse. Walk the text and double any
+// backslash that starts a known LaTeX command, then parse.
+function parseAiJson(text) {
+  try {
+    return JSON.parse(text);
+  } catch {}
+  let out = "";
+  let inStr = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (!inStr) {
+      out += ch;
+      if (ch === '"') inStr = true;
+      continue;
+    }
+    if (ch === '"') {
+      inStr = false;
+      out += ch;
+      continue;
+    }
+    if (ch === "\\") {
+      const m = /^\\([a-zA-Z]+)/.exec(text.slice(i));
+      if (m && LATEX_CMDS.has(m[1])) {
+        out += "\\\\" + m[1];
+        i += m[0].length - 1;
+        continue;
+      }
+      out += ch;
+      if (i + 1 < text.length) {
+        out += text[i + 1];
+        i++;
+      }
+      continue;
+    }
+    out += ch;
+  }
+  return JSON.parse(out);
+}
+
 async function callGemini(model, key, payload, timeoutMs) {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), timeoutMs);
@@ -37,6 +90,7 @@ Reply with ONLY a JSON object (no markdown fences, no extra text) with these str
 - "symbols": the meaning of each symbol, one per line, in the format "x = meaning".
 - "example": one short, fully solved numeric example showing how the formula is used.
 If the image contains no maths formula, reply with {"error": "No formula found in this photo."}.
+IMPORTANT: the reply must be valid JSON — escape every backslash as \\\\ (write \\\\frac, \\\\sqrt, \\\\pm and so on).
 Use simple English.`;
 
 export async function POST(req) {
@@ -111,7 +165,7 @@ export async function POST(req) {
       }
       let parsed;
       try {
-        parsed = JSON.parse(text);
+        parsed = parseAiJson(text);
       } catch {
         attempts.push(`${model}: bad JSON "${text.slice(0, 60)}"`);
         continue;
