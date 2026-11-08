@@ -4,7 +4,7 @@ import { requireUser } from "../../../lib/supabase";
 export const dynamic = "force-dynamic";
 export const preferredRegion = "bom1";
 
-const MODELS = ["gemini-2.5-flash", "gemini-2.0-flash"];
+const MODELS = ["gemini-3.8-flash", "gemini-2.5-flash"];
 
 const PROMPT = `You are reading a photo of a maths formula (from a textbook or a notebook). Extract the formula and explain it for a student.
 Reply with ONLY a JSON object (no markdown fences, no extra text) with these string fields:
@@ -74,7 +74,7 @@ export async function POST(req) {
       );
       const d = await r.json();
       if (!r.ok) {
-        lastErr = d?.error?.message || `AI error (${r.status})`;
+        if (!lastErr) lastErr = d?.error?.message || `AI error (${r.status})`;
         continue;
       }
       const text = (d?.candidates?.[0]?.content?.parts || [])
@@ -95,7 +95,7 @@ export async function POST(req) {
         example: String(parsed.example || "").slice(0, 4000),
       });
     } catch {
-      lastErr = "AI se sahi jawab nahi aaya. Dobara try karo.";
+      if (!lastErr) lastErr = "AI se sahi jawab nahi aaya. Dobara try karo.";
     }
   }
   return NextResponse.json(
