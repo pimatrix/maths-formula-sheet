@@ -105,8 +105,10 @@ export default function FormulaApp({ initialData }) {
 
   const sideGroups = useMemo(() => {
     const groups = [];
-    const basics = categories.filter((c) => BASICS.includes(c.slug));
-    const units = categories.filter((c) => ["unit1", "unit2", "unit3", "unit4", "unit5"].includes(c.slug));
+    const basics = categories.filter((c) => BASICS.includes(c.slug) || c.group === "Basics");
+    const units = categories.filter(
+      (c) => ["unit1", "unit2", "unit3", "unit4", "unit5"].includes(c.slug) || c.group === "Units" || (c.group || "").startsWith("M1")
+    );
     const rest = categories.filter((c) => !basics.includes(c) && !units.includes(c));
     if (basics.length) groups.push({ label: "Foundation — Class 11–12 Basics", cats: basics });
     if (units.length) groups.push({ label: "M1 — Engineering Mathematics-I", cats: units });
@@ -382,13 +384,6 @@ export default function FormulaApp({ initialData }) {
               Showing <b>{visible.length}</b> of {data.entries.length} entries
               {q.trim() ? <> for “{q.trim()}”</> : null}
               {section ? <> · Section: <b>{section}</b> (<button className="fs-clear-sec" onClick={() => setSection("")}>show all sections</button>)</> : null}
-              {" · "}
-              {categories.map((c, i) => (
-                <span key={c.slug}>
-                  {i > 0 ? " · " : ""}
-                  <Link href={`/c/${c.slug}`}>{c.title} page</Link>
-                </span>
-              ))}
             </p>
           )}
         </div>
@@ -452,6 +447,13 @@ export default function FormulaApp({ initialData }) {
                 ))}
               </div>
             ))}
+            {me && (
+              <>
+                <p className="fs-side-group">Create New</p>
+                <Link className="fs-side-item fs-side-create" href="/add-class" onClick={() => setSideOpen(false)}>+ Add Class</Link>
+                <Link className="fs-side-item fs-side-create" href="/add-class?mode=category" onClick={() => setSideOpen(false)}>+ Add Category</Link>
+              </>
+            )}
           </div>
         </aside>
         {sideOpen && <div className="fs-side-backdrop" onClick={() => setSideOpen(false)} />}

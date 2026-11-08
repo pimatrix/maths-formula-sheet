@@ -1,5 +1,9 @@
 import "./globals.css";
+import { Inter, Space_Grotesk } from "next/font/google";
 import Navbar from "../components/Navbar";
+
+const displayFont = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display" });
+const bodyFont = Inter({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata = {
   title: "Maths Formula Sheet — Engineering Mathematics M1, M2, M3, M4",
@@ -29,7 +33,7 @@ export const preferredRegion = "bom1";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${displayFont.variable} ${bodyFont.variable}`}>
         <Navbar />
         {children}
       </body>
