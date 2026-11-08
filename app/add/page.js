@@ -8,7 +8,7 @@ const PENDING_KEY = "fs_pending_add";
 
 export default function AddPage() {
   const [categories, setCategories] = useState([]);
-  const [form, setForm] = useState({ kind: "formula", name: "", category: "basics-trigonometry", section: "", formula: "" });
+  const [form, setForm] = useState({ kind: "formula", name: "", category: "basics-trigonometry", section: "", formula: "", about: "", symbols: "", example: "" });
   const [newCat, setNewCat] = useState(false);
   const [catForm, setCatForm] = useState({ title: "", grp: "" });
   const [busy, setBusy] = useState(false);
@@ -190,6 +190,16 @@ export default function AddPage() {
           </label>
           <p style={{ fontSize: 13, color: "#5a6b7f", margin: "0 0 6px" }}>Live preview — exactly how it will look on the site:</p>
           <div className="fs-preview" dangerouslySetInnerHTML={{ __html: formulaTextToHtml(form.formula) || "<span style='color:#93a3b5'>Preview will appear here…</span>" }} />
+          <p style={{ fontSize: 13.5, color: "#44536a", margin: "14px 0 4px" }}><b>Detail (optional, lekin bahut kaam ki)</b> — ye teen cheezein "View" button me dikhengi, taaki padhne wale ko formula samajh aaye:</p>
+          <label className="fs-field">Ye formula kis cheez ke liye hai?
+            <textarea rows={2} value={form.about} onChange={(e) => setForm({ ...form, about: e.target.value })} placeholder="e.g. Gives both roots of a quadratic equation directly, without factorising" />
+          </label>
+          <label className="fs-field">Symbols ka matlab (ek line me ek symbol)
+            <textarea rows={3} value={form.symbols} onChange={(e) => setForm({ ...form, symbols: e.target.value })} placeholder={"a = coefficient of x^2\nb = coefficient of x\nc = constant term"} />
+          </label>
+          <label className="fs-field">Example / use case (ek chhota sa solved example)
+            <textarea rows={3} value={form.example} onChange={(e) => setForm({ ...form, example: e.target.value })} placeholder="e.g. For x^2 - 5x + 6 = 0: x = (5 ± 1)/2, so x = 3 or 2" />
+          </label>
           {note && <p style={{ color: "#1e7b34", fontSize: 14 }}>{note}</p>}
           {error && <p className="fs-form-error">{error}</p>}
           <button className="fs-btn-primary big" style={{ marginTop: 14 }} disabled={busy}>

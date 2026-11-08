@@ -19,7 +19,10 @@ function clean(body) {
   const formula = String(body?.formula ?? body?.body ?? "").trim();
   const section = String(body?.section || "").trim();
   const kind = body?.kind === "theory" ? "theory" : "formula";
-  return { name, formula, section, kind, category: String(body?.category || "") };
+  const about = String(body?.about || "").trim();
+  const symbols = String(body?.symbols || "").trim();
+  const example = String(body?.example || "").trim();
+  return { name, formula, section, kind, about, symbols, example, category: String(body?.category || "") };
 }
 
 function validate(v, categories) {
@@ -28,7 +31,30 @@ function validate(v, categories) {
   if (!v.name || !v.formula) return "Name and formula/theory text are both required.";
   if (v.name.length > 200 || v.formula.length > 6000 || v.section.length > 120)
     return "Input is too long.";
+  if (v.about.length > 2000 || v.symbols.length > 2000 || v.example.length > 4000)
+    return "Detail fields are too long.";
   return null;
+}
+
+function entryFromRow(row) {
+  return {
+    id: "u" + row.id,
+    rowId: row.id,
+    category: row.category,
+    section: row.section || "",
+    name: row.name,
+    body: row.body,
+    kind: row.kind,
+    about: row.about || "",
+    symbols: row.symbols || "",
+    example: row.example || "",
+    userAdded: true,
+    user_id: row.user_id,
+    author_name: row.author_name || "",
+    author_email: row.author_email || "",
+    created_at: row.created_at,
+    updated_at: row.updated_at,
+  };
 }
 
 export async function POST(req) {
@@ -54,6 +80,9 @@ export async function POST(req) {
       name: v.name,
       body: v.formula,
       kind: v.kind,
+      about: v.about || null,
+      symbols: v.symbols || null,
+      example: v.example || null,
       user_id: user.id,
       author_name: user.user_metadata?.name || "",
       author_email: user.email,
@@ -61,25 +90,7 @@ export async function POST(req) {
   });
   if (!rows || !rows[0])
     return NextResponse.json({ error: "Could not save. Please try again." }, { status: 502 });
-  const row = rows[0];
-  return NextResponse.json({
-    ok: true,
-    entry: {
-      id: "u" + row.id,
-      rowId: row.id,
-      category: row.category,
-      section: row.section || "",
-      name: row.name,
-      body: row.body,
-      kind: row.kind,
-      userAdded: true,
-      user_id: row.user_id,
-      author_name: row.author_name || "",
-      author_email: row.author_email || "",
-      created_at: row.created_at,
-      updated_at: row.updated_at,
-    },
-  });
+  return NextResponse.json({ ok: true, entry: entryFromRow(rows[0]) });
 }
 
 async function loadOwnedRow(req, rowId) {
@@ -128,30 +139,15 @@ export async function PUT(req) {
       name: v.name,
       body: v.formula,
       kind: v.kind,
+      about: v.about || null,
+      symbols: v.symbols || null,
+      example: v.example || null,
       updated_at: new Date().toISOString(),
     }),
   });
   if (!rows || !rows[0])
     return NextResponse.json({ error: "Could not update. Please try again." }, { status: 502 });
-  const row = rows[0];
-  return NextResponse.json({
-    ok: true,
-    entry: {
-      id: "u" + row.id,
-      rowId: row.id,
-      category: row.category,
-      section: row.section || "",
-      name: row.name,
-      body: row.body,
-      kind: row.kind,
-      userAdded: true,
-      user_id: row.user_id,
-      author_name: row.author_name || "",
-      author_email: row.author_email || "",
-      created_at: row.created_at,
-      updated_at: row.updated_at,
-    },
-  });
+  return NextResponse.json({ ok: true, entry: entryFromRow(rows[0]) });
 }
 
 export async function DELETE(req) {

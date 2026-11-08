@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { apiFetch, fetchMe, formatDateTime, getSession, track } from "../lib/client";
+import { detailsFor } from "../lib/details";
 import { formulaTextToHtml } from "../lib/render";
 import ShareButton from "./ShareButton";
 
@@ -34,6 +35,7 @@ export default function FormulaApp({ initialData }) {
   const [expanded, setExpanded] = useState({});
   const [me, setMe] = useState(null);
   const [modal, setModal] = useState(null); // {type:'edit'|'delete', entry, form}
+  const [viewEntry, setViewEntry] = useState(null);
   const [saving, setSaving] = useState(false);
   const [formError, setFormError] = useState("");
   const [toast, setToast] = useState("");
@@ -139,9 +141,26 @@ export default function FormulaApp({ initialData }) {
     if (filter === "basics") list = list.filter((e) => BASICS.includes(e.category));
     else if (filter !== "all") list = list.filter((e) => e.category === filter);
     if (section) list = list.filter((e) => (e.section || "General") === section);
-    const needle = dq.trim().toLowerCase();
-    if (needle) {
-      list = list.filter((e) => (searchIndex[e.id] || "").includes(needle));
+    const rawNeedle = dq.trim().toLowerCase();
+    if (rawNeedle) {
+      const tokens = rawNeedle
+        .split(/\s+/)
+        .map((t) => (t.length > 3 && t.endsWith("s") ? t.slice(0, -1) : t))
+        .filter((t) => t.length >= 2);
+      if (tokens.length) {
+        const scored = list.map((e) => {
+          const text = searchIndex[e.id] || "";
+          const hits = tokens.reduce((n, t) => n + (text.includes(t) ? 1 : 0), 0);
+          return { e, hits };
+        });
+        const all = scored.filter((s) => s.hits === tokens.length);
+        if (all.length) list = all.map((s) => s.e);
+        else
+          list = scored
+            .filter((s) => s.hits > 0)
+            .sort((a, b) => b.hits - a.hits)
+            .map((s) => s.e);
+      }
     }
     return list;
   }, [data, filter, dq, section, searchIndex]);
@@ -174,7 +193,8 @@ export default function FormulaApp({ initialData }) {
     if (!data) return [];
     if (filter === "all") return data.syllabus;
     if (filter === "basics") return []; // syllabus belongs to Engineering Mathematics (M1)
-    return data.syllabus.filter((s) => s.category === filter);
+    // global syllabus (no category) shows with every class/unit view
+    return data.syllabus.filter((s) => s.category === filter || !s.category);
   }, [data, filter]);
 
   const canModify = (e) =>
@@ -185,7 +205,16 @@ export default function FormulaApp({ initialData }) {
     setModal({
       type: "edit",
       entry,
-      form: { name: entry.name, category: entry.category, section: entry.section || "", kind: entry.kind || "formula", formula: entry.body },
+      form: {
+        name: entry.name,
+        category: entry.category,
+        section: entry.section || "",
+        kind: entry.kind || "formula",
+        formula: entry.body,
+        about: entry.about || "",
+        symbols: entry.symbols || "",
+        example: entry.example || "",
+      },
     });
   }
   function openDelete(entry) {
@@ -330,6 +359,7 @@ export default function FormulaApp({ initialData }) {
           </div>
         )}
         <div className="fs-card-actions">
+          <button className="fs-share-btn" onClick={() => setViewEntry(e)}>View</button>
           <ShareButton name={e.name} category={e.category} />
           {canModify(e) && (
             <>
@@ -341,6 +371,8 @@ export default function FormulaApp({ initialData }) {
       </>
     );
   }
+
+  const viewDetails = viewEntry ? detailsFor(viewEntry) : null;
 
   return (
     <div className="fs-root">
@@ -472,6 +504,7 @@ export default function FormulaApp({ initialData }) {
           </section>
         ))}
 
+        {!dq.trim() && (
         <section className="fs-cat" id="syllabus">
           <h2 className="fs-cat-title">Syllabus — Engineering Mathematics (BTech 1st Year · 1st Semester)</h2>
           {visibleSyllabus.length === 0 ? (
@@ -526,6 +559,7 @@ export default function FormulaApp({ initialData }) {
             </p>
           )}
         </section>
+        )}
 
         <footer className="fs-footer">
           <p>Anyone can view. To add, edit or delete your own formulas, please login — this keeps spam away and shows who added what. This site uses analytics to understand which formulas students use most.</p>
@@ -574,6 +608,15 @@ export default function FormulaApp({ initialData }) {
                   <textarea rows={3} value={modal.form.formula} onChange={(e) => setModal({ ...modal, form: { ...modal.form, formula: e.target.value } })} />
                 </label>
                 <div className="fs-preview" dangerouslySetInnerHTML={{ __html: formulaTextToHtml(modal.form.formula) }} />
+                <label>What is this formula for? (optional)
+                  <textarea rows={2} value={modal.form.about} onChange={(e) => setModal({ ...modal, form: { ...modal.form, about: e.target.value } })} placeholder="e.g. Gives both roots of a quadratic equation directly" />
+                </label>
+                <label>What do the symbols mean? (optional, one per line)
+                  <textarea rows={3} value={modal.form.symbols} onChange={(e) => setModal({ ...modal, form: { ...modal.form, symbols: e.target.value } })} placeholder={"a = coefficient of x^2\nb = coefficient of x"} />
+                </label>
+                <label>Example / use case (optional)
+                  <textarea rows={3} value={modal.form.example} onChange={(e) => setModal({ ...modal, form: { ...modal.form, example: e.target.value } })} placeholder="e.g. For x^2 - 5x + 6 = 0: x = (5 ± 1)/2, so x = 3 or 2" />
+                </label>
                 {formError && <p className="fs-form-error">{formError}</p>}
                 <div className="fs-modal-actions">
                   <button className="fs-btn-ghost" onClick={() => setModal(null)}>Cancel</button>
@@ -583,6 +626,58 @@ export default function FormulaApp({ initialData }) {
                 </div>
               </>
             )}
+          </div>
+        </div>
+      )}
+
+      {viewEntry && (
+        <div className="fs-modal-backdrop" onClick={() => setViewEntry(null)}>
+          <div className="fs-modal fs-view-modal" onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ marginBottom: 4 }}>{viewEntry.name}</h3>
+            <p className="fs-view-cat">
+              {catBySlug[viewEntry.category]?.title || viewEntry.category}
+              {viewEntry.section ? " · " + viewEntry.section : ""}
+            </p>
+            <div
+              className={"fs-view-formula" + (viewEntry.kind === "theory" ? " fs-theory" : "")}
+              dangerouslySetInnerHTML={{
+                __html: viewEntry.userAdded ? formulaTextToHtml(viewEntry.body) : viewEntry.body,
+              }}
+            />
+            {viewDetails ? (
+              <>
+                {viewDetails.about ? (
+                  <div className="fs-view-block">
+                    <h4>What is this formula for?</h4>
+                    <p>{viewDetails.about}</p>
+                  </div>
+                ) : null}
+                {viewDetails.symbols ? (
+                  <div className="fs-view-block">
+                    <h4>What the symbols mean</h4>
+                    {viewDetails.symbols.split("\n").filter(Boolean).map((line, i) => {
+                      const idx = line.indexOf(" = ");
+                      return idx > 0 ? (
+                        <div className="fs-sym-row" key={i}><b>{line.slice(0, idx)}</b><span>{line.slice(idx + 3)}</span></div>
+                      ) : (
+                        <p key={i} style={{ margin: "2px 0" }}>{line}</p>
+                      );
+                    })}
+                  </div>
+                ) : null}
+                {viewDetails.example ? (
+                  <div className="fs-view-block fs-view-example">
+                    <h4>Example — how to use it</h4>
+                    <p style={{ whiteSpace: "pre-wrap" }}>{viewDetails.example}</p>
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <p className="fs-view-soon">Is formula ki detail (matlab, symbols aur example) abhi jodi ja rahi hai — jald milegi.</p>
+            )}
+            <div className="fs-modal-actions">
+              <button className="fs-btn-ghost" onClick={() => setViewEntry(null)}>Close</button>
+            </div>
           </div>
         </div>
       )}

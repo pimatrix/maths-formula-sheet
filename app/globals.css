@@ -135,6 +135,24 @@
   outline: none; border-color: #4338ca; box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.15);
 }
 .fs-key-note { font-size: 14.5px; color: #44536a; margin: 0 0 14px; line-height: 1.5; }
+
+/* View (formula detail) modal */
+.fs-view-modal { max-width: 640px; }
+.fs-view-cat { margin: 0 0 12px; font-size: 13px; font-weight: 600; color: #7c6aa8; letter-spacing: 0.02em; }
+.fs-view-formula {
+  font-family: var(--font-display), "Georgia", serif; font-size: 24px; text-align: center;
+  background: #eef2ff; border: 1px solid #d9d2f5; border-radius: 12px;
+  padding: 20px 14px; margin-bottom: 16px; color: #241b4d; overflow-x: auto;
+}
+.fs-view-formula.fs-theory { font-size: 15.5px; text-align: left; line-height: 1.55; font-family: inherit; }
+.fs-view-block { margin-bottom: 14px; }
+.fs-view-block h4 { margin: 0 0 6px; font-size: 14px; color: #4338ca; letter-spacing: 0.01em; }
+.fs-view-block p { margin: 0; font-size: 14.5px; line-height: 1.6; color: #2c3644; }
+.fs-sym-row { display: flex; gap: 10px; font-size: 14.5px; line-height: 1.55; color: #2c3644; padding: 2px 0; }
+.fs-sym-row b { min-width: 92px; color: #241b4d; font-family: var(--font-display), "Georgia", serif; }
+.fs-view-example { background: #f4fbf4; border: 1px solid #cfe8cf; border-radius: 10px; padding: 12px 14px; }
+.fs-view-example h4 { color: #22702c; }
+.fs-view-soon { font-size: 14px; color: #7a8698; margin: 0 0 6px; }
 .fs-form-error { color: #b3261e; font-size: 14px; margin: 4px 0 10px; }
 .fs-modal-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 6px; }
 .fs-btn-primary {
