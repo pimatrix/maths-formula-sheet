@@ -16,6 +16,62 @@ export default function AddPage() {
   const [note, setNote] = useState("");
   const [copied, setCopied] = useState(false);
   const autoTried = useRef(false);
+  const [scanBusy, setScanBusy] = useState(false);
+  const [scanNote, setScanNote] = useState("");
+
+  function downscaleImage(file) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        const max = 1600;
+        const scale = Math.min(1, max / Math.max(img.width, img.height));
+        const canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", 0.85));
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error("Photo load nahi ho payi."));
+      };
+      img.src = url;
+    });
+  }
+
+  async function onScanFile(ev) {
+    const file = ev.target.files?.[0];
+    ev.target.value = "";
+    if (!file) return;
+    if (!getSession()) {
+      setScanNote("Photo scan ke liye pehle login zaruri hai (AI ke galat istemal ko rokne ke liye). Pehle neeche wala form Submit karke login kar lo — phir photo dobara choose kar lena, AI sab bhar dega.");
+      return;
+    }
+    setScanBusy(true);
+    setScanNote("");
+    try {
+      const dataUrl = await downscaleImage(file);
+      const r = await apiFetch("/api/scan", { method: "POST", body: JSON.stringify({ image: dataUrl }) });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || "Scan failed");
+      setForm((f) => ({
+        ...f,
+        name: d.name || f.name,
+        formula: d.formula || f.formula,
+        section: d.section || f.section,
+        about: d.about || f.about,
+        symbols: d.symbols || f.symbols,
+        example: d.example || f.example,
+      }));
+      setScanNote("AI ne sab bhar diya hai — ek baar check kar lo (kuchh galat lage to theek kar do), phir neeche Submit kar do.");
+    } catch (e) {
+      setScanNote(e.message || "Photo scan nahi ho paya. Dobara try karo, ya form haath se bhar do.");
+    } finally {
+      setScanBusy(false);
+    }
+  }
 
   async function loadCategories() {
     try {
@@ -126,6 +182,20 @@ export default function AddPage() {
           Fill the details, check the live preview, then submit. If you are not logged in, you will be asked to
           login or create an account at the last step — so that it is known who added the formula.
         </p>
+
+        <div className="fs-scan-card">
+          <h3 style={{ color: "#4338ca", margin: "0 0 4px" }}>Photo se formula add karo (AI) — sabse aasan tareeka</h3>
+          <p style={{ color: "#44536a", fontSize: 14.5, margin: "0 0 10px" }}>
+            Book ya copy se formula ki photo lo — AI khud uska <b>naam, formula, matlab, symbols ka arth aur example</b> bhar dega.
+            Tumhe bas check karke Submit karna hai. (Photo scan ke liye login zaruri hai.)
+          </p>
+          <label className="fs-scan-btn">
+            {scanBusy ? "AI photo padh raha hai…" : "Photo choose karo / camera se lo"}
+            <input type="file" accept="image/*" onChange={onScanFile} disabled={scanBusy} style={{ display: "none" }} />
+          </label>
+          {scanBusy && <p style={{ fontSize: 13.5, color: "#5a6b7f", margin: "8px 0 0" }}>Thoda samay lagega (lagbhag 10–20 second)…</p>}
+          {scanNote && <p style={{ fontSize: 14, color: "#2c3644", margin: "10px 0 0" }}>{scanNote}</p>}
+        </div>
 
         <h3 style={{ color: "#143a66", margin: "16px 0 4px" }}>Get a perfectly formatted formula from any AI</h3>
         <ol className="fs-steps">

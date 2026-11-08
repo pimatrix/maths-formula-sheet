@@ -1,0 +1,105 @@
+import { NextResponse } from "next/server";
+import { requireUser } from "../../../lib/supabase";
+
+export const dynamic = "force-dynamic";
+export const preferredRegion = "bom1";
+
+const MODELS = ["gemini-2.5-flash", "gemini-2.0-flash"];
+
+const PROMPT = `You are reading a photo of a maths formula (from a textbook or a notebook). Extract the formula and explain it for a student.
+Reply with ONLY a JSON object (no markdown fences, no extra text) with these string fields:
+- "name": a short clear name for the formula, e.g. "Quadratic Formula" or "d/dx (sin x)".
+- "formula": the formula converted to FormulaText markup. Rules: fraction \\frac{num}{den}; power x^{2} (always use braces); subscript a_{n}; root \\sqrt{...}; symbol commands \\pi \\theta \\alpha \\beta \\lambda \\Delta \\int \\oint \\sum \\partial \\infty \\pm \\leq \\geq \\neq \\approx \\to \\times \\cdot; functions stay as plain words (sin, cos, tan, log, ln, lim, det); matrix as MAT(a, b; c, d). Keep Greek letters as commands, NOT as Unicode characters.
+- "section": the topic it belongs to, e.g. "Quadratic Equations" or "Integration".
+- "about": 1-2 simple sentences — what this formula is used for.
+- "symbols": the meaning of each symbol, one per line, in the format "x = meaning".
+- "example": one short, fully solved numeric example showing how the formula is used.
+If the image contains no maths formula, reply with {"error": "No formula found in this photo."}.
+Use simple English.`;
+
+export async function POST(req) {
+  const { user } = await requireUser(req);
+  if (!user)
+    return NextResponse.json(
+      { error: "Photo scan ke liye pehle login karo." },
+      { status: 401 }
+    );
+  const key = process.env.GEMINI_API_KEY;
+  if (!key)
+    return NextResponse.json(
+      { error: "AI is not set up on the server yet." },
+      { status: 503 }
+    );
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
+  }
+  const image = String(body?.image || "");
+  const m = image.match(/^data:(image\/(?:jpeg|png|webp));base64,(.+)$/);
+  if (!m)
+    return NextResponse.json(
+      { error: "Please choose a photo (JPG or PNG)." },
+      { status: 400 }
+    );
+  if (m[2].length > 7000000)
+    return NextResponse.json(
+      { error: "Photo is too large. Please use a smaller, clearer photo." },
+      { status: 413 }
+    );
+
+  const payload = {
+    contents: [
+      {
+        parts: [
+          { text: PROMPT },
+          { inline_data: { mime_type: m[1], data: m[2] } },
+        ],
+      },
+    ],
+    generationConfig: { responseMimeType: "application/json", temperature: 0.2 },
+  };
+
+  let lastErr = "";
+  for (const model of MODELS) {
+    try {
+      const r = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+          body: JSON.stringify(payload),
+        }
+      );
+      const d = await r.json();
+      if (!r.ok) {
+        lastErr = d?.error?.message || `AI error (${r.status})`;
+        continue;
+      }
+      const text = (d?.candidates?.[0]?.content?.parts || [])
+        .map((p) => p.text || "")
+        .join("")
+        .replace(/^```(?:json)?\s*/i, "")
+        .replace(/\s*```$/, "");
+      const parsed = JSON.parse(text);
+      if (parsed.error)
+        return NextResponse.json({ error: String(parsed.error) }, { status: 422 });
+      return NextResponse.json({
+        ok: true,
+        name: String(parsed.name || "").slice(0, 200),
+        formula: String(parsed.formula || "").slice(0, 6000),
+        section: String(parsed.section || "").slice(0, 120),
+        about: String(parsed.about || "").slice(0, 2000),
+        symbols: String(parsed.symbols || "").slice(0, 2000),
+        example: String(parsed.example || "").slice(0, 4000),
+      });
+    } catch {
+      lastErr = "AI se sahi jawab nahi aaya. Dobara try karo.";
+    }
+  }
+  return NextResponse.json(
+    { error: lastErr || "AI scan failed. Please try again." },
+    { status: 502 }
+  );
+}

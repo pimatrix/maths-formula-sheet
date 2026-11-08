@@ -153,6 +153,18 @@
 .fs-view-example { background: #f4fbf4; border: 1px solid #cfe8cf; border-radius: 10px; padding: 12px 14px; }
 .fs-view-example h4 { color: #22702c; }
 .fs-view-soon { font-size: 14px; color: #7a8698; margin: 0 0 6px; }
+
+/* AI photo scan card (Add page) */
+.fs-scan-card {
+  background: linear-gradient(135deg, #eef2ff, #f3efff);
+  border: 1.5px solid #c9c2f2; border-radius: 12px;
+  padding: 16px 18px; margin: 14px 0 6px;
+}
+.fs-scan-btn {
+  display: inline-block; background: #4338ca; color: #fff; font-weight: 700;
+  font-size: 14.5px; padding: 11px 20px; border-radius: 10px; cursor: pointer;
+}
+.fs-scan-btn:hover { background: #3730a3; }
 .fs-form-error { color: #b3261e; font-size: 14px; margin: 4px 0 10px; }
 .fs-modal-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 6px; }
 .fs-btn-primary {
