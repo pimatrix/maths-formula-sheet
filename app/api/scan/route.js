@@ -5,8 +5,8 @@ export const dynamic = "force-dynamic";
 export const preferredRegion = "bom1";
 export const maxDuration = 60;
 
-const MODELS = ["gemini-3.8-flash", "gemini-3.8-flash"];
-const TIMEOUTS = [35000, 22000];
+const MODELS = ["gemini-3.5-flash-lite", "gemini-3.8-flash"];
+const TIMEOUTS = [25000, 30000];
 
 async function callGemini(model, key, payload, timeoutMs) {
   const ctrl = new AbortController();
