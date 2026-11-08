@@ -3,8 +3,29 @@ import { requireUser } from "../../../lib/supabase";
 
 export const dynamic = "force-dynamic";
 export const preferredRegion = "bom1";
+export const maxDuration = 60;
 
-const MODELS = ["gemini-3.8-flash", "gemini-2.5-flash"];
+const MODELS = ["gemini-3.8-flash", "gemini-3.8-flash", "gemini-2.5-flash"];
+
+async function callGemini(model, key, payload, timeoutMs) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const r = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+        body: JSON.stringify(payload),
+        signal: ctrl.signal,
+      }
+    );
+    const d = await r.json().catch(() => null);
+    return { r, d };
+  } finally {
+    clearTimeout(t);
+  }
+}
 
 const PROMPT = `You are reading a photo of a maths formula (from a textbook or a notebook). Extract the formula and explain it for a student.
 Reply with ONLY a JSON object (no markdown fences, no extra text) with these string fields:
@@ -58,21 +79,17 @@ export async function POST(req) {
         ],
       },
     ],
-    generationConfig: { responseMimeType: "application/json", temperature: 0.2 },
+    generationConfig: {
+      responseMimeType: "application/json",
+      temperature: 0.2,
+      maxOutputTokens: 1500,
+    },
   };
 
   let lastErr = "";
   for (const model of MODELS) {
     try {
-      const r = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-          body: JSON.stringify(payload),
-        }
-      );
-      const d = await r.json();
+      const { r, d } = await callGemini(model, key, payload, 20000);
       if (!r.ok) {
         if (!lastErr) lastErr = d?.error?.message || `AI error (${r.status})`;
         continue;
