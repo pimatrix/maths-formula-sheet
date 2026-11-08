@@ -1,0 +1,2379 @@
+{
+ "categories": [
+  {
+   "slug": "basics-algebra",
+   "title": "Basics · Algebra & Logarithms",
+   "group": "Basics"
+  },
+  {
+   "slug": "basics-trigonometry",
+   "title": "Basics · Trigonometry",
+   "group": "Basics"
+  },
+  {
+   "slug": "basics-differentiation",
+   "title": "Basics · Differentiation",
+   "group": "Basics"
+  },
+  {
+   "slug": "basics-integration",
+   "title": "Basics · Integration & Limits",
+   "group": "Basics"
+  },
+  {
+   "slug": "unit1",
+   "title": "Unit 1 · Matrices & Linear Systems",
+   "group": "Units"
+  },
+  {
+   "slug": "unit2",
+   "title": "Unit 2 · Differential Calculus",
+   "group": "Units"
+  },
+  {
+   "slug": "unit3",
+   "title": "Unit 3 · Integral Calculus",
+   "group": "Units"
+  },
+  {
+   "slug": "unit4",
+   "title": "Unit 4 · Differential Equations",
+   "group": "Units"
+  },
+  {
+   "slug": "unit5",
+   "title": "Unit 5 · Complex Analysis",
+   "group": "Units"
+  }
+ ],
+ "entries": [
+  {
+   "id": "s1",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "(a + b)²",
+   "body": "<span class=\"lbl\">(a + b)<sup>2</sup></span> = a<sup>2</sup> + 2ab + b<sup>2</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s2",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "(a − b)²",
+   "body": "<span class=\"lbl\">(a − b)<sup>2</sup></span> = a<sup>2</sup> − 2ab + b<sup>2</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s3",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "a² − b²",
+   "body": "<span class=\"lbl\">a<sup>2</sup> − b<sup>2</sup></span> = (a − b)(a + b)",
+   "kind": "formula"
+  },
+  {
+   "id": "s4",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "(a + b)³",
+   "body": "<span class=\"lbl\">(a + b)<sup>3</sup></span> = a<sup>3</sup> + 3a<sup>2</sup>b + 3ab<sup>2</sup> + b<sup>3</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s5",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "(a − b)³",
+   "body": "<span class=\"lbl\">(a − b)<sup>3</sup></span> = a<sup>3</sup> − 3a<sup>2</sup>b + 3ab<sup>2</sup> − b<sup>3</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s6",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "a³ + b³",
+   "body": "<span class=\"lbl\">a<sup>3</sup> + b<sup>3</sup></span> = (a + b)(a<sup>2</sup> − ab + b<sup>2</sup>)",
+   "kind": "formula"
+  },
+  {
+   "id": "s7",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "a³ − b³",
+   "body": "<span class=\"lbl\">a<sup>3</sup> − b<sup>3</sup></span> = (a − b)(a<sup>2</sup> + ab + b<sup>2</sup>)",
+   "kind": "formula"
+  },
+  {
+   "id": "s8",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "(a + b + c)²",
+   "body": "<span class=\"lbl\">(a + b + c)<sup>2</sup></span> = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> + 2ab + 2bc + 2ca",
+   "kind": "formula"
+  },
+  {
+   "id": "s9",
+   "category": "basics-algebra",
+   "section": "Algebraic Identities",
+   "name": "(x + a)(x + b)",
+   "body": "<span class=\"lbl\">(x + a)(x + b)</span> = x<sup>2</sup> + (a + b)x + ab",
+   "kind": "formula"
+  },
+  {
+   "id": "s10",
+   "category": "basics-algebra",
+   "section": "Laws of Indices",
+   "name": "am · aⁿ",
+   "body": "a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s11",
+   "category": "basics-algebra",
+   "section": "Laws of Indices",
+   "name": "(am)/(aⁿ)",
+   "body": "<span class=\"frac\"><span class=\"t\">a<sup>m</sup></span><span class=\"b\">a<sup>n</sup></span></span> = a<sup>m−n</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s12",
+   "category": "basics-algebra",
+   "section": "Laws of Indices",
+   "name": "(am)ⁿ",
+   "body": "(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s13",
+   "category": "basics-algebra",
+   "section": "Laws of Indices",
+   "name": "a⁰",
+   "body": "a<sup>0</sup> = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s14",
+   "category": "basics-algebra",
+   "section": "Laws of Indices",
+   "name": "a−ⁿ",
+   "body": "a<sup>−n</sup> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">a<sup>n</sup></span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s15",
+   "category": "basics-algebra",
+   "section": "Laws of Indices",
+   "name": "a¹/ⁿ",
+   "body": "a<sup>1/n</sup> = <sup>n</sup>√a",
+   "kind": "formula"
+  },
+  {
+   "id": "s16",
+   "category": "basics-algebra",
+   "section": "Laws of Indices",
+   "name": "(ab)ⁿ",
+   "body": "(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s17",
+   "category": "basics-algebra",
+   "section": "Quadratic Equation — ax2 + bx + c = 0",
+   "name": "Roots",
+   "body": "<span class=\"lbl\">Roots:</span> &nbsp; x = <span class=\"frac\"><span class=\"t\">−b ± √(b<sup>2</sup> − 4ac)</span><span class=\"b\">2a</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s18",
+   "category": "basics-algebra",
+   "section": "Quadratic Equation — ax2 + bx + c = 0",
+   "name": "Sum of roots",
+   "body": "<span class=\"lbl\">Sum of roots:</span> α + β = <span class=\"frac\"><span class=\"t\">−b</span><span class=\"b\">a</span></span> &nbsp;&nbsp;&nbsp; <span class=\"lbl\">Product of roots:</span> αβ = <span class=\"frac\"><span class=\"t\">c</span><span class=\"b\">a</span></span> &nbsp;&nbsp;&nbsp; <span class=\"lbl\">Equation from roots:</span> x<sup>2</sup> − (α + β)x + αβ = 0",
+   "kind": "formula"
+  },
+  {
+   "id": "s19",
+   "category": "basics-algebra",
+   "section": "Quadratic Equation — ax2 + bx + c = 0",
+   "name": "THEORY — The Discriminant D = b2 − 4ac decides the nature of the roots",
+   "body": "<span class=\"th\">THEORY — The Discriminant D = b<sup>2</sup> − 4ac decides the nature of the roots:</span>\n<ul>\n<li><b>D &gt; 0</b> → two real and distinct roots</li>\n<li><b>D = 0</b> → two equal roots, α = β = −b/2a</li>\n<li><b>D &lt; 0</b> → no real roots (roots are complex conjugates)</li>\n</ul>",
+   "kind": "theory"
+  },
+  {
+   "id": "s20",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "log(mn)",
+   "body": "log(mn) = log m + log n",
+   "kind": "formula"
+  },
+  {
+   "id": "s21",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "log (m)/(n)",
+   "body": "log<span class=\"frac\"><span class=\"t\">m</span><span class=\"b\">n</span></span> = log m − log n",
+   "kind": "formula"
+  },
+  {
+   "id": "s22",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "log(mⁿ)",
+   "body": "log(m<sup>n</sup>) = n · log m",
+   "kind": "formula"
+  },
+  {
+   "id": "s23",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "log 1",
+   "body": "log 1 = 0",
+   "kind": "formula"
+  },
+  {
+   "id": "s24",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "loga a",
+   "body": "log<sub>a</sub> a = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s25",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "ln e",
+   "body": "ln e = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s26",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "alogᵃ m",
+   "body": "a<sup>log<sub>a</sub> m</sup> = m",
+   "kind": "formula"
+  },
+  {
+   "id": "s27",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "Change of base",
+   "body": "<span class=\"lbl\">Change of base:</span> log<sub>b</sub> a = <span class=\"frac\"><span class=\"t\">log a</span><span class=\"b\">log b</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s28",
+   "category": "basics-algebra",
+   "section": "Logarithms",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>A logarithm is the inverse of a power: if a<sup>x</sup> = m, then x = log<sub>a</sub> m. “ln” means log<sub>e</sub> (natural logarithm). Logarithms turn multiplication into addition and powers into multiplication — that is why they simplify heavy calculations.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s29",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "AP",
+   "body": "<span class=\"lbl\">AP:</span> a<sub>n</sub> = a + (n−1)d",
+   "kind": "formula"
+  },
+  {
+   "id": "s30",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "Sn",
+   "body": "S<sub>n</sub> = <span class=\"frac\"><span class=\"t\">n</span><span class=\"b\">2</span></span> [ 2a + (n−1)d ] = <span class=\"frac\"><span class=\"t\">n</span><span class=\"b\">2</span></span> (a + l)",
+   "kind": "formula"
+  },
+  {
+   "id": "s31",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "GP",
+   "body": "<span class=\"lbl\">GP:</span> a<sub>n</sub> = a·r<sup>n−1</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s32",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "Sn (2)",
+   "body": "S<sub>n</sub> = <span class=\"frac\"><span class=\"t\">a(r<sup>n</sup> − 1)</span><span class=\"b\">r − 1</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s33",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "S∞",
+   "body": "S<sub>∞</sub> = <span class=\"frac\"><span class=\"t\">a</span><span class=\"b\">1 − r</span></span> (|r| &lt; 1)",
+   "kind": "formula"
+  },
+  {
+   "id": "s34",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "Factorial",
+   "body": "<span class=\"lbl\">Factorial:</span> n! = n·(n−1)·…·2·1, &nbsp; 0! = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s35",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "ⁿCr",
+   "body": "<span class=\"lbl\"><sup>n</sup>C<sub>r</sub></span> = <span class=\"frac\"><span class=\"t\">n!</span><span class=\"b\">r! (n−r)!</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s36",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "ⁿCr (2)",
+   "body": "<sup>n</sup>C<sub>r</sub> = <sup>n</sup>C<sub>n−r</sub>",
+   "kind": "formula"
+  },
+  {
+   "id": "s37",
+   "category": "basics-algebra",
+   "section": "Sequences and the Binomial Theorem",
+   "name": "General term of (a + b)ⁿ",
+   "body": "<span class=\"lbl\">General term of (a + b)<sup>n</sup>:</span> T<sub>r+1</sub> = <sup>n</sup>C<sub>r</sub> · a<sup>n−r</sup> · b<sup>r</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s38",
+   "category": "basics-trigonometry",
+   "section": "",
+   "name": "THEORY — Definitions (in a right-angled triangle)",
+   "body": "<span class=\"th\">THEORY — Definitions (in a right-angled triangle):</span>\n<p>sin θ = <span class=\"frac\"><span class=\"t\">Perpendicular</span><span class=\"b\">Hypotenuse</span></span> &nbsp; cos θ = <span class=\"frac\"><span class=\"t\">Base</span><span class=\"b\">Hypotenuse</span></span> &nbsp; tan θ = <span class=\"frac\"><span class=\"t\">Perpendicular</span><span class=\"b\">Base</span></span> = <span class=\"frac\"><span class=\"t\">sin θ</span><span class=\"b\">cos θ</span></span></p>\n<p>Reciprocals: cosec θ = 1/sin θ, &nbsp; sec θ = 1/cos θ, &nbsp; cot θ = 1/tan θ = cos θ/sin θ.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s39",
+   "category": "basics-trigonometry",
+   "section": "",
+   "name": "Standard Values Table",
+   "body": "<table class=\"vals\">\n<tr><th>θ</th><th>0° (0)</th><th>30° (π/6)</th><th>45° (π/4)</th><th>60° (π/3)</th><th>90° (π/2)</th></tr>\n<tr><th>sin θ</th><td>0</td><td>1/2</td><td>1/√2</td><td>√3/2</td><td>1</td></tr>\n<tr><th>cos θ</th><td>1</td><td>√3/2</td><td>1/√2</td><td>1/2</td><td>0</td></tr>\n<tr><th>tan θ</th><td>0</td><td>1/√3</td><td>1</td><td>√3</td><td>∞ (not defined)</td></tr>\n<tr><th>cot θ</th><td>∞</td><td>√3</td><td>1</td><td>1/√3</td><td>0</td></tr>\n<tr><th>sec θ</th><td>1</td><td>2/√3</td><td>√2</td><td>2</td><td>∞</td></tr>\n<tr><th>cosec θ</th><td>∞</td><td>2</td><td>√2</td><td>2/√3</td><td>1</td></tr>\n</table>",
+   "kind": "table"
+  },
+  {
+   "id": "s40",
+   "category": "basics-trigonometry",
+   "section": "",
+   "name": "Memory trick",
+   "body": "<span class=\"lbl\">Memory trick:</span> sin values are √0/2, √1/2, √2/2, √3/2, √4/2 for 0°, 30°, 45°, 60°, 90° — cos is exactly the reverse order.",
+   "kind": "formula"
+  },
+  {
+   "id": "s41",
+   "category": "basics-trigonometry",
+   "section": "Fundamental Identities",
+   "name": "sin²θ + cos²θ",
+   "body": "sin<sup>2</sup>θ + cos<sup>2</sup>θ = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s42",
+   "category": "basics-trigonometry",
+   "section": "Fundamental Identities",
+   "name": "1 + tan²θ",
+   "body": "1 + tan<sup>2</sup>θ = sec<sup>2</sup>θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s43",
+   "category": "basics-trigonometry",
+   "section": "Fundamental Identities",
+   "name": "1 + cot²θ",
+   "body": "1 + cot<sup>2</sup>θ = cosec<sup>2</sup>θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s44",
+   "category": "basics-trigonometry",
+   "section": "Fundamental Identities",
+   "name": "sin(−θ)",
+   "body": "sin(−θ) = −sin θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s45",
+   "category": "basics-trigonometry",
+   "section": "Fundamental Identities",
+   "name": "cos(−θ)",
+   "body": "cos(−θ) = cos θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s46",
+   "category": "basics-trigonometry",
+   "section": "Fundamental Identities",
+   "name": "tan(−θ)",
+   "body": "tan(−θ) = −tan θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s47",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "sin(90° − θ)",
+   "body": "sin(90° − θ) = cos θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s48",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "cos(90° − θ)",
+   "body": "cos(90° − θ) = sin θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s49",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "tan(90° − θ)",
+   "body": "tan(90° − θ) = cot θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s50",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "sin(90° + θ)",
+   "body": "sin(90° + θ) = cos θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s51",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "cos(90° + θ)",
+   "body": "cos(90° + θ) = −sin θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s52",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "sin(180° − θ)",
+   "body": "sin(180° − θ) = sin θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s53",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "cos(180° − θ)",
+   "body": "cos(180° − θ) = −cos θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s54",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "sin(180° + θ)",
+   "body": "sin(180° + θ) = −sin θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s55",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "cos(180° + θ)",
+   "body": "cos(180° + θ) = −cos θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s56",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "tan(180° + θ)",
+   "body": "tan(180° + θ) = tan θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s57",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "sin(360° − θ)",
+   "body": "sin(360° − θ) = −sin θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s58",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "cos(360° − θ)",
+   "body": "cos(360° − θ) = cos θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s59",
+   "category": "basics-trigonometry",
+   "section": "Allied Angles",
+   "name": "THEORY — Signs in the four quadrants (ASTC rule)",
+   "body": "<span class=\"th\">THEORY — Signs in the four quadrants (ASTC rule):</span>\n<ul>\n<li><b>1st quadrant (0–90°):</b> all ratios positive — <b>A</b>ll</li>\n<li><b>2nd (90–180°):</b> only sin and cosec positive — <b>S</b>ilver</li>\n<li><b>3rd (180–270°):</b> only tan and cot positive — <b>T</b>ea</li>\n<li><b>4th (270–360°):</b> only cos and sec positive — <b>C</b>ups</li>\n</ul>\n<p>Memory line: <b>“All Silver Tea Cups.”</b></p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s60",
+   "category": "basics-trigonometry",
+   "section": "Radians ↔ Degrees",
+   "name": "π rad",
+   "body": "π rad = 180°",
+   "kind": "formula"
+  },
+  {
+   "id": "s61",
+   "category": "basics-trigonometry",
+   "section": "Radians ↔ Degrees",
+   "name": "1 rad",
+   "body": "1 rad = <span class=\"frac\"><span class=\"t\">180°</span><span class=\"b\">π</span></span> ≈ 57.3°",
+   "kind": "formula"
+  },
+  {
+   "id": "s62",
+   "category": "basics-trigonometry",
+   "section": "Radians ↔ Degrees",
+   "name": "1°",
+   "body": "1° = <span class=\"frac\"><span class=\"t\">π</span><span class=\"b\">180</span></span> rad",
+   "kind": "formula"
+  },
+  {
+   "id": "s63",
+   "category": "basics-trigonometry",
+   "section": "Radians ↔ Degrees",
+   "name": "Arc length: l",
+   "body": "Arc length: l = rθ (θ in radians)",
+   "kind": "formula"
+  },
+  {
+   "id": "s64",
+   "category": "basics-trigonometry",
+   "section": "Compound Angles",
+   "name": "sin(A ± B)",
+   "body": "<span class=\"lbl\">sin(A ± B)</span> = sinA cosB ± cosA sinB",
+   "kind": "formula"
+  },
+  {
+   "id": "s65",
+   "category": "basics-trigonometry",
+   "section": "Compound Angles",
+   "name": "cos(A ± B)",
+   "body": "<span class=\"lbl\">cos(A ± B)</span> = cosA cosB ∓ sinA sinB &nbsp; <span class=\"small\">(note the opposite sign)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s66",
+   "category": "basics-trigonometry",
+   "section": "Compound Angles",
+   "name": "tan(A ± B)",
+   "body": "<span class=\"lbl\">tan(A ± B)</span> = <span class=\"frac\"><span class=\"t\">tanA ± tanB</span><span class=\"b\">1 ∓ tanA tanB</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s67",
+   "category": "basics-trigonometry",
+   "section": "Double, Triple and Half Angles",
+   "name": "sin 2A",
+   "body": "<span class=\"lbl\">sin 2A</span> = 2 sinA cosA = <span class=\"frac\"><span class=\"t\">2 tanA</span><span class=\"b\">1 + tan<sup>2</sup>A</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s68",
+   "category": "basics-trigonometry",
+   "section": "Double, Triple and Half Angles",
+   "name": "cos 2A",
+   "body": "<span class=\"lbl\">cos 2A</span> = cos<sup>2</sup>A − sin<sup>2</sup>A = 2cos<sup>2</sup>A − 1 = 1 − 2sin<sup>2</sup>A = <span class=\"frac\"><span class=\"t\">1 − tan<sup>2</sup>A</span><span class=\"b\">1 + tan<sup>2</sup>A</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s69",
+   "category": "basics-trigonometry",
+   "section": "Double, Triple and Half Angles",
+   "name": "tan 2A",
+   "body": "<span class=\"lbl\">tan 2A</span> = <span class=\"frac\"><span class=\"t\">2 tanA</span><span class=\"b\">1 − tan<sup>2</sup>A</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s70",
+   "category": "basics-trigonometry",
+   "section": "Double, Triple and Half Angles",
+   "name": "sin 3A",
+   "body": "<span class=\"lbl\">sin 3A</span> = 3 sinA − 4 sin<sup>3</sup>A",
+   "kind": "formula"
+  },
+  {
+   "id": "s71",
+   "category": "basics-trigonometry",
+   "section": "Double, Triple and Half Angles",
+   "name": "cos 3A",
+   "body": "<span class=\"lbl\">cos 3A</span> = 4 cos<sup>3</sup>A − 3 cosA",
+   "kind": "formula"
+  },
+  {
+   "id": "s72",
+   "category": "basics-trigonometry",
+   "section": "Double, Triple and Half Angles",
+   "name": "Half angle",
+   "body": "<span class=\"lbl\">Half angle:</span> sin<sup>2</sup><span class=\"frac\"><span class=\"t\">A</span><span class=\"b\">2</span></span> = <span class=\"frac\"><span class=\"t\">1 − cosA</span><span class=\"b\">2</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s73",
+   "category": "basics-trigonometry",
+   "section": "Double, Triple and Half Angles",
+   "name": "cos² (A)/(2)",
+   "body": "cos<sup>2</sup><span class=\"frac\"><span class=\"t\">A</span><span class=\"b\">2</span></span> = <span class=\"frac\"><span class=\"t\">1 + cosA</span><span class=\"b\">2</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s74",
+   "category": "basics-trigonometry",
+   "section": "Double, Triple and Half Angles",
+   "name": "tan² (A)/(2)",
+   "body": "tan<sup>2</sup><span class=\"frac\"><span class=\"t\">A</span><span class=\"b\">2</span></span> = <span class=\"frac\"><span class=\"t\">1 − cosA</span><span class=\"b\">1 + cosA</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s75",
+   "category": "basics-trigonometry",
+   "section": "Product ↔ Sum Conversions",
+   "name": "2 sinA cosB",
+   "body": "2 sinA cosB = sin(A+B) + sin(A−B)",
+   "kind": "formula"
+  },
+  {
+   "id": "s76",
+   "category": "basics-trigonometry",
+   "section": "Product ↔ Sum Conversions",
+   "name": "2 cosA sinB",
+   "body": "2 cosA sinB = sin(A+B) − sin(A−B)",
+   "kind": "formula"
+  },
+  {
+   "id": "s77",
+   "category": "basics-trigonometry",
+   "section": "Product ↔ Sum Conversions",
+   "name": "2 cosA cosB",
+   "body": "2 cosA cosB = cos(A+B) + cos(A−B)",
+   "kind": "formula"
+  },
+  {
+   "id": "s78",
+   "category": "basics-trigonometry",
+   "section": "Product ↔ Sum Conversions",
+   "name": "2 sinA sinB",
+   "body": "2 sinA sinB = cos(A−B) − cos(A+B)",
+   "kind": "formula"
+  },
+  {
+   "id": "s79",
+   "category": "basics-trigonometry",
+   "section": "Product ↔ Sum Conversions",
+   "name": "sinC + sinD",
+   "body": "sinC + sinD = 2 sin<span class=\"frac\"><span class=\"t\">C+D</span><span class=\"b\">2</span></span> cos<span class=\"frac\"><span class=\"t\">C−D</span><span class=\"b\">2</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s80",
+   "category": "basics-trigonometry",
+   "section": "Product ↔ Sum Conversions",
+   "name": "sinC − sinD",
+   "body": "sinC − sinD = 2 cos<span class=\"frac\"><span class=\"t\">C+D</span><span class=\"b\">2</span></span> sin<span class=\"frac\"><span class=\"t\">C−D</span><span class=\"b\">2</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s81",
+   "category": "basics-trigonometry",
+   "section": "Product ↔ Sum Conversions",
+   "name": "cosC + cosD",
+   "body": "cosC + cosD = 2 cos<span class=\"frac\"><span class=\"t\">C+D</span><span class=\"b\">2</span></span> cos<span class=\"frac\"><span class=\"t\">C−D</span><span class=\"b\">2</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s82",
+   "category": "basics-trigonometry",
+   "section": "Product ↔ Sum Conversions",
+   "name": "cosC − cosD",
+   "body": "cosC − cosD = −2 sin<span class=\"frac\"><span class=\"t\">C+D</span><span class=\"b\">2</span></span> sin<span class=\"frac\"><span class=\"t\">C−D</span><span class=\"b\">2</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s83",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>The derivative dy/dx measures the <b>rate of change</b> of y with respect to x — geometrically, the <b>slope</b> of the curve at that point. The master rule is d/dx (x<sup>n</sup>) = n·x<sup>n−1</sup>: “the power comes down in front, and the power decreases by one.”</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s84",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (xⁿ)",
+   "body": "<span class=\"lbl\">d/dx (x<sup>n</sup>)</span> = n·x<sup>n−1</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s85",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (constant)",
+   "body": "<span class=\"lbl\">d/dx (constant)</span> = 0",
+   "kind": "formula"
+  },
+  {
+   "id": "s86",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (√x)",
+   "body": "<span class=\"lbl\">d/dx (√x)</span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">2√x</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s87",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (1/x)",
+   "body": "<span class=\"lbl\">d/dx (1/x)</span> = <span class=\"frac\"><span class=\"t\">−1</span><span class=\"b\">x<sup>2</sup></span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s88",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (eˣ)",
+   "body": "<span class=\"lbl\">d/dx (e<sup>x</sup>)</span> = e<sup>x</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s89",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (aˣ)",
+   "body": "<span class=\"lbl\">d/dx (a<sup>x</sup>)</span> = a<sup>x</sup> · ln a",
+   "kind": "formula"
+  },
+  {
+   "id": "s90",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (ln x)",
+   "body": "<span class=\"lbl\">d/dx (ln x)</span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">x</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s91",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (loga x)",
+   "body": "<span class=\"lbl\">d/dx (log<sub>a</sub> x)</span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">x ln a</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s92",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (sin x)",
+   "body": "<span class=\"lbl\">d/dx (sin x)</span> = cos x",
+   "kind": "formula"
+  },
+  {
+   "id": "s93",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (cos x)",
+   "body": "<span class=\"lbl\">d/dx (cos x)</span> = −sin x",
+   "kind": "formula"
+  },
+  {
+   "id": "s94",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (tan x)",
+   "body": "<span class=\"lbl\">d/dx (tan x)</span> = sec<sup>2</sup>x",
+   "kind": "formula"
+  },
+  {
+   "id": "s95",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (cot x)",
+   "body": "<span class=\"lbl\">d/dx (cot x)</span> = −cosec<sup>2</sup>x",
+   "kind": "formula"
+  },
+  {
+   "id": "s96",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (sec x)",
+   "body": "<span class=\"lbl\">d/dx (sec x)</span> = sec x · tan x",
+   "kind": "formula"
+  },
+  {
+   "id": "s97",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (cosec x)",
+   "body": "<span class=\"lbl\">d/dx (cosec x)</span> = −cosec x · cot x",
+   "kind": "formula"
+  },
+  {
+   "id": "s98",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (sin−¹x)",
+   "body": "<span class=\"lbl\">d/dx (sin<sup>−1</sup>x)</span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">√(1 − x<sup>2</sup>)</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s99",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (cos−¹x)",
+   "body": "<span class=\"lbl\">d/dx (cos<sup>−1</sup>x)</span> = <span class=\"frac\"><span class=\"t\">−1</span><span class=\"b\">√(1 − x<sup>2</sup>)</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s100",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (tan−¹x)",
+   "body": "<span class=\"lbl\">d/dx (tan<sup>−1</sup>x)</span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">1 + x<sup>2</sup></span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s101",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (cot−¹x)",
+   "body": "<span class=\"lbl\">d/dx (cot<sup>−1</sup>x)</span> = <span class=\"frac\"><span class=\"t\">−1</span><span class=\"b\">1 + x<sup>2</sup></span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s102",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (sec−¹x)",
+   "body": "<span class=\"lbl\">d/dx (sec<sup>−1</sup>x)</span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">x √(x<sup>2</sup> − 1)</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s103",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "d/dx (cosec−¹x)",
+   "body": "<span class=\"lbl\">d/dx (cosec<sup>−1</sup>x)</span> = <span class=\"frac\"><span class=\"t\">−1</span><span class=\"b\">x √(x<sup>2</sup> − 1)</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s104",
+   "category": "basics-differentiation",
+   "section": "",
+   "name": "THEORY — The three working rules",
+   "body": "<span class=\"th\">THEORY — The three working rules:</span>\n<ul>\n<li><b>Product rule:</b> d/dx (u·v) = u·(dv/dx) + v·(du/dx) — “first × derivative of second + second × derivative of first.”</li>\n<li><b>Quotient rule:</b> d/dx (u/v) = <span class=\"frac\"><span class=\"t\">v(du/dx) − u(dv/dx)</span><span class=\"b\">v<sup>2</sup></span></span></li>\n<li><b>Chain rule:</b> dy/dx = (dy/du)·(du/dx) — differentiate the outer function, then multiply by the derivative of the inner function. Example: d/dx sin(x<sup>2</sup>) = cos(x<sup>2</sup>) · 2x.</li>\n<li><b>Implicit differentiation:</b> if x and y are mixed (e.g. x<sup>2</sup> + y<sup>2</sup> = a<sup>2</sup>), differentiate both sides w.r.t. x, treating y as a function of x (every y-term picks up a dy/dx).</li>\n</ul>",
+   "kind": "theory"
+  },
+  {
+   "id": "s105",
+   "category": "basics-integration",
+   "section": "",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>Integration is the <b>reverse process of differentiation</b> — “which function, when differentiated, gives this?” That is why every indefinite integral carries a <b>+ C</b> (constant of integration): all constants vanish on differentiation. The definite integral ∫<sub>a</sub><sup>b</sup> f(x) dx gives the <b>signed area</b> under the curve between x = a and x = b.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s106",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ xⁿ dx",
+   "body": "<span class=\"lbl\">∫ x<sup>n</sup> dx</span> = <span class=\"frac\"><span class=\"t\">x<sup>n+1</sup></span><span class=\"b\">n + 1</span></span> + C &nbsp; (n ≠ −1)",
+   "kind": "formula"
+  },
+  {
+   "id": "s107",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ 1",
+   "body": "<span class=\"lbl\">∫ <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">x</span></span> dx</span> = ln|x| + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s108",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ eˣ dx",
+   "body": "<span class=\"lbl\">∫ e<sup>x</sup> dx</span> = e<sup>x</sup> + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s109",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ aˣ dx",
+   "body": "<span class=\"lbl\">∫ a<sup>x</sup> dx</span> = <span class=\"frac\"><span class=\"t\">a<sup>x</sup></span><span class=\"b\">ln a</span></span> + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s110",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ sin x dx",
+   "body": "<span class=\"lbl\">∫ sin x dx</span> = −cos x + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s111",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ cos x dx",
+   "body": "<span class=\"lbl\">∫ cos x dx</span> = sin x + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s112",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ sec²x dx",
+   "body": "<span class=\"lbl\">∫ sec<sup>2</sup>x dx</span> = tan x + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s113",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ cosec²x dx",
+   "body": "<span class=\"lbl\">∫ cosec<sup>2</sup>x dx</span> = −cot x + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s114",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ sec x tan x dx",
+   "body": "<span class=\"lbl\">∫ sec x tan x dx</span> = sec x + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s115",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ cosec x cot x dx",
+   "body": "<span class=\"lbl\">∫ cosec x cot x dx</span> = −cosec x + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s116",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ tan x dx",
+   "body": "<span class=\"lbl\">∫ tan x dx</span> = ln|sec x| + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s117",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ cot x dx",
+   "body": "<span class=\"lbl\">∫ cot x dx</span> = ln|sin x| + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s118",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ sec x dx",
+   "body": "<span class=\"lbl\">∫ sec x dx</span> = ln|sec x + tan x| + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s119",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ cosec x dx",
+   "body": "<span class=\"lbl\">∫ cosec x dx</span> = ln|cosec x − cot x| + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s120",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ sin²x dx",
+   "body": "<span class=\"lbl\">∫ sin<sup>2</sup>x dx</span> = <span class=\"frac\"><span class=\"t\">x</span><span class=\"b\">2</span></span> − <span class=\"frac\"><span class=\"t\">sin 2x</span><span class=\"b\">4</span></span> + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s121",
+   "category": "basics-integration",
+   "section": "",
+   "name": "∫ cos²x dx",
+   "body": "<span class=\"lbl\">∫ cos<sup>2</sup>x dx</span> = <span class=\"frac\"><span class=\"t\">x</span><span class=\"b\">2</span></span> + <span class=\"frac\"><span class=\"t\">sin 2x</span><span class=\"b\">4</span></span> + C &nbsp; <span class=\"small\">(use sin<sup>2</sup>x = (1 − cos 2x)/2)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s122",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ dx",
+   "body": "<span class=\"lbl\">∫ <span class=\"frac\"><span class=\"t\">dx</span><span class=\"b\">x<sup>2</sup> + a<sup>2</sup></span></span></span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">a</span></span> tan<sup>−1</sup><span class=\"frac\"><span class=\"t\">x</span><span class=\"b\">a</span></span> + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s123",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ dx (2)",
+   "body": "<span class=\"lbl\">∫ <span class=\"frac\"><span class=\"t\">dx</span><span class=\"b\">√(a<sup>2</sup> − x<sup>2</sup>)</span></span></span> = sin<sup>−1</sup><span class=\"frac\"><span class=\"t\">x</span><span class=\"b\">a</span></span> + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s124",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ dx (3)",
+   "body": "<span class=\"lbl\">∫ <span class=\"frac\"><span class=\"t\">dx</span><span class=\"b\">a<sup>2</sup> − x<sup>2</sup></span></span></span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">2a</span></span> ln <span class=\"frac\"><span class=\"t\">a + x</span><span class=\"b\">a − x</span></span> + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s125",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ dx (4)",
+   "body": "<span class=\"lbl\">∫ <span class=\"frac\"><span class=\"t\">dx</span><span class=\"b\">x<sup>2</sup> − a<sup>2</sup></span></span></span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">2a</span></span> ln <span class=\"frac\"><span class=\"t\">x − a</span><span class=\"b\">x + a</span></span> + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s126",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ dx (5)",
+   "body": "<span class=\"lbl\">∫ <span class=\"frac\"><span class=\"t\">dx</span><span class=\"b\">√(x<sup>2</sup> + a<sup>2</sup>)</span></span></span> = ln | x + √(x<sup>2</sup> + a<sup>2</sup>) | + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s127",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ dx (6)",
+   "body": "<span class=\"lbl\">∫ <span class=\"frac\"><span class=\"t\">dx</span><span class=\"b\">√(x<sup>2</sup> − a<sup>2</sup>)</span></span></span> = ln | x + √(x<sup>2</sup> − a<sup>2</sup>) | + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s128",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ √(a² − x²) dx",
+   "body": "<span class=\"lbl\">∫ √(a<sup>2</sup> − x<sup>2</sup>) dx</span> = <span class=\"frac\"><span class=\"t\">x</span><span class=\"b\">2</span></span>√(a<sup>2</sup> − x<sup>2</sup>) + <span class=\"frac\"><span class=\"t\">a<sup>2</sup></span><span class=\"b\">2</span></span> sin<sup>−1</sup><span class=\"frac\"><span class=\"t\">x</span><span class=\"b\">a</span></span> + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s129",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ √(x² + a²) dx",
+   "body": "<span class=\"lbl\">∫ √(x<sup>2</sup> + a<sup>2</sup>) dx</span> = <span class=\"frac\"><span class=\"t\">x</span><span class=\"b\">2</span></span>√(x<sup>2</sup> + a<sup>2</sup>) + <span class=\"frac\"><span class=\"t\">a<sup>2</sup></span><span class=\"b\">2</span></span> ln | x + √(x<sup>2</sup> + a<sup>2</sup>) | + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s130",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "∫ √(x² − a²) dx",
+   "body": "<span class=\"lbl\">∫ √(x<sup>2</sup> − a<sup>2</sup>) dx</span> = <span class=\"frac\"><span class=\"t\">x</span><span class=\"b\">2</span></span>√(x<sup>2</sup> − a<sup>2</sup>) − <span class=\"frac\"><span class=\"t\">a<sup>2</sup></span><span class=\"b\">2</span></span> ln | x + √(x<sup>2</sup> − a<sup>2</sup>) | + C",
+   "kind": "formula"
+  },
+  {
+   "id": "s131",
+   "category": "basics-integration",
+   "section": "Standard Forms (a &gt; 0)",
+   "name": "THEORY — Integration by Parts and Partial Fractions",
+   "body": "<span class=\"th\">THEORY — Integration by Parts and Partial Fractions:</span>\n<p><b>By Parts:</b> ∫ u·v dx = u ∫v dx − ∫ [ (du/dx) · ∫v dx ] dx. &nbsp; Choose u by the <b>ILATE</b> order: <b>I</b>nverse trig → <b>L</b>ogarithmic → <b>A</b>lgebraic → <b>T</b>rigonometric → <b>E</b>xponential (whichever comes first becomes u).</p>\n<p><b>Special pattern:</b> ∫ e<sup>x</sup> [ f(x) + f′(x) ] dx = e<sup>x</sup> f(x) + C.</p>\n<p><b>Partial fractions:</b> for a proper rational function, split by denominator factors: <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">(x − a)(x − b)</span></span> = <span class=\"frac\"><span class=\"t\">A</span><span class=\"b\">x − a</span></span> + <span class=\"frac\"><span class=\"t\">B</span><span class=\"b\">x − b</span></span> ; &nbsp; repeated factor (x − a)<sup>2</sup> needs <span class=\"frac\"><span class=\"t\">A</span><span class=\"b\">x − a</span></span> + <span class=\"frac\"><span class=\"t\">B</span><span class=\"b\">(x − a)<sup>2</sup></span></span> ; &nbsp; an irreducible quadratic factor needs <span class=\"frac\"><span class=\"t\">Ax + B</span><span class=\"b\">x<sup>2</sup> + px + q</span></span>. Then integrate term by term (every piece becomes a log or a tan<sup>−1</sup>).</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s132",
+   "category": "basics-integration",
+   "section": "Standard Limits",
+   "name": "limx→0 (sin x)/(x)",
+   "body": "lim<sub>x→0</sub> <span class=\"frac\"><span class=\"t\">sin x</span><span class=\"b\">x</span></span> = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s133",
+   "category": "basics-integration",
+   "section": "Standard Limits",
+   "name": "limx→0 (tan x)/(x)",
+   "body": "lim<sub>x→0</sub> <span class=\"frac\"><span class=\"t\">tan x</span><span class=\"b\">x</span></span> = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s134",
+   "category": "basics-integration",
+   "section": "Standard Limits",
+   "name": "limx→0 (eˣ − 1)/(x)",
+   "body": "lim<sub>x→0</sub> <span class=\"frac\"><span class=\"t\">e<sup>x</sup> − 1</span><span class=\"b\">x</span></span> = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s135",
+   "category": "basics-integration",
+   "section": "Standard Limits",
+   "name": "limx→0 (aˣ − 1)/(x)",
+   "body": "lim<sub>x→0</sub> <span class=\"frac\"><span class=\"t\">a<sup>x</sup> − 1</span><span class=\"b\">x</span></span> = ln a",
+   "kind": "formula"
+  },
+  {
+   "id": "s136",
+   "category": "basics-integration",
+   "section": "Standard Limits",
+   "name": "limx→0 (ln(1 + x))/(x)",
+   "body": "lim<sub>x→0</sub> <span class=\"frac\"><span class=\"t\">ln(1 + x)</span><span class=\"b\">x</span></span> = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s137",
+   "category": "basics-integration",
+   "section": "Standard Limits",
+   "name": "limx→0 (1 + x)¹/ˣ",
+   "body": "lim<sub>x→0</sub> (1 + x)<sup>1/x</sup> = e",
+   "kind": "formula"
+  },
+  {
+   "id": "s138",
+   "category": "basics-integration",
+   "section": "Standard Limits",
+   "name": "limx→a (xⁿ − aⁿ)/(x − a)",
+   "body": "lim<sub>x→a</sub> <span class=\"frac\"><span class=\"t\">x<sup>n</sup> − a<sup>n</sup></span><span class=\"b\">x − a</span></span> = n·a<sup>n−1</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s139",
+   "category": "basics-integration",
+   "section": "Standard Limits",
+   "name": "Note",
+   "body": "Note: in sin x / x → 1, the angle x must be in <b>radians</b>. These limits are the foundation of the series expansions in Unit II.",
+   "kind": "theory"
+  },
+  {
+   "id": "s140",
+   "category": "unit1",
+   "section": "Determinants",
+   "name": "2×2",
+   "body": "<span class=\"lbl\">2×2:</span> <span class=\"mat\">a &nbsp; b<br>c &nbsp; d</span> = ad − bc",
+   "kind": "formula"
+  },
+  {
+   "id": "s141",
+   "category": "unit1",
+   "section": "Determinants",
+   "name": "3×3 (expansion along the first row)",
+   "body": "<span class=\"lbl\">3×3 (expansion along the first row):</span> <span class=\"mat\">a &nbsp; b &nbsp; c<br>d &nbsp; e &nbsp; f<br>g &nbsp; h &nbsp; i</span> = a(ei − fh) − b(di − fg) + c(dh − eg)",
+   "kind": "formula"
+  },
+  {
+   "id": "s142",
+   "category": "unit1",
+   "section": "Determinants",
+   "name": "THEORY — Minors and Cofactors",
+   "body": "<span class=\"th\">THEORY — Minors and Cofactors:</span>\n<p>The <b>minor</b> M<sub>ij</sub> of an element is the determinant left after deleting its row and column. The <b>cofactor</b> is C<sub>ij</sub> = (−1)<sup>i+j</sup> M<sub>ij</sub> — the sign follows a chessboard pattern starting with + at (1,1). The value of a determinant = sum of (elements of any row/column) × (their cofactors). The <b>adjoint</b> of A is the transpose of the cofactor matrix.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s143",
+   "category": "unit1",
+   "section": "Determinants",
+   "name": "PROPERTIES — Determinants (frequently asked)",
+   "body": "<span class=\"th\">PROPERTIES — Determinants (frequently asked):</span>\n<ul>\n<li>Interchanging two rows (or columns) <b>changes the sign</b> of the determinant.</li>\n<li>Two identical (or proportional) rows/columns → value = <b>0</b>.</li>\n<li>Multiplying one row by k multiplies the determinant by k; hence <b>|kA| = k<sup>n</sup>|A|</b> for an n×n matrix.</li>\n<li>|A<sup>T</sup>| = |A| &nbsp;|&nbsp; |AB| = |A|·|B| &nbsp;|&nbsp; Determinant of a triangular/diagonal matrix = product of its diagonal entries.</li>\n<li>Adding a multiple of one row to another row does <b>not</b> change the value (the key to simplifying determinants).</li>\n<li><b>|A| = 0</b> ⇔ A is <b>singular</b> ⇔ A<sup>−1</sup> does <b>not</b> exist. |A| ≠ 0 ⇔ non-singular ⇔ inverse exists.</li>\n</ul>",
+   "kind": "theory"
+  },
+  {
+   "id": "s144",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "Inverse",
+   "body": "<span class=\"lbl\">Inverse:</span> A<sup>−1</sup> = <span class=\"frac\"><span class=\"t\">adj(A)</span><span class=\"b\">|A|</span></span> &nbsp;&nbsp; and &nbsp; A · A<sup>−1</sup> = A<sup>−1</sup> · A = I",
+   "kind": "formula"
+  },
+  {
+   "id": "s145",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "A · adj(A)",
+   "body": "A · adj(A) = adj(A) · A = |A| · I",
+   "kind": "formula"
+  },
+  {
+   "id": "s146",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "|A−¹|",
+   "body": "|A<sup>−1</sup>| = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">|A|</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s147",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "|adj A|",
+   "body": "|adj A| = |A|<sup>n−1</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s148",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "(AB)−¹",
+   "body": "(AB)<sup>−1</sup> = B<sup>−1</sup>A<sup>−1</sup> <span class=\"small\">(order reverses)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s149",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "(A−¹)−¹",
+   "body": "(A<sup>−1</sup>)<sup>−1</sup> = A",
+   "kind": "formula"
+  },
+  {
+   "id": "s150",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "(kA)−¹",
+   "body": "(kA)<sup>−1</sup> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">k</span></span> A<sup>−1</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s151",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "(AT)−¹",
+   "body": "(A<sup>T</sup>)<sup>−1</sup> = (A<sup>−1</sup>)<sup>T</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s152",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "adj(AB)",
+   "body": "adj(AB) = adj(B) · adj(A)",
+   "kind": "formula"
+  },
+  {
+   "id": "s153",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "Types of matrices",
+   "body": "<span class=\"lbl\">Types of matrices:</span> Symmetric: A<sup>T</sup> = A",
+   "kind": "formula"
+  },
+  {
+   "id": "s154",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "Skew-symmetric: AT",
+   "body": "Skew-symmetric: A<sup>T</sup> = −A (all diagonal entries are 0)",
+   "kind": "formula"
+  },
+  {
+   "id": "s155",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "Orthogonal: A·AT",
+   "body": "Orthogonal: A·A<sup>T</sup> = I, i.e. A<sup>−1</sup> = A<sup>T</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s156",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "Idempotent: A²",
+   "body": "Idempotent: A<sup>2</sup> = A",
+   "kind": "formula"
+  },
+  {
+   "id": "s157",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "Involutory: A²",
+   "body": "Involutory: A<sup>2</sup> = I",
+   "kind": "formula"
+  },
+  {
+   "id": "s158",
+   "category": "unit1",
+   "section": "Inverse and Adjoint — All Rules",
+   "name": "Every square matrix splits as",
+   "body": "<span class=\"lbl\">Every square matrix splits as:</span> A = <span class=\"frac\"><span class=\"t\">A + A<sup>T</sup></span><span class=\"b\">2</span></span> (symmetric) + <span class=\"frac\"><span class=\"t\">A − A<sup>T</sup></span><span class=\"b\">2</span></span> (skew-symmetric)",
+   "kind": "formula"
+  },
+  {
+   "id": "s159",
+   "category": "unit1",
+   "section": "Rank of a Matrix",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>The <b>rank</b> of a matrix is the number of independent rows (equivalently, the order of the largest non-zero minor). <b>Method:</b> apply elementary row operations to reach <b>echelon form</b>; the number of non-zero rows is the rank. Always rank ≤ min(number of rows, number of columns); the n×n identity matrix has rank n. Also rank(AB) ≤ min(rank A, rank B), and elementary operations never change the rank.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s160",
+   "category": "unit1",
+   "section": "System of Equations AX = B — All Methods and Rules",
+   "name": "THEORY — Consistency test (compare ranks)",
+   "body": "<span class=\"th\">THEORY — Consistency test (compare ranks):</span>\n<ul>\n<li>rank(A) ≠ rank([A | B]) → <b>no solution</b> (inconsistent)</li>\n<li>rank(A) = rank([A|B]) = number of unknowns n → <b>unique solution</b></li>\n<li>rank(A) = rank([A|B]) &lt; n → <b>infinitely many solutions</b></li>\n<li><b>Homogeneous system AX = 0</b> is always consistent (x = 0 always works). A <b>non-trivial</b> solution exists ⇔ rank &lt; n — for a square system, ⇔ <b>|A| = 0</b>.</li>\n</ul>\n<p><b>Solution methods:</b> (1) <b>Matrix inversion:</b> X = A<sup>−1</sup>B, valid only when |A| ≠ 0. (2) <b>Cramer's rule</b> (for |A| ≠ 0): x = <span class=\"frac\"><span class=\"t\">D<sub>x</sub></span><span class=\"b\">D</span></span>, &nbsp; y = <span class=\"frac\"><span class=\"t\">D<sub>y</sub></span><span class=\"b\">D</span></span>, &nbsp; z = <span class=\"frac\"><span class=\"t\">D<sub>z</sub></span><span class=\"b\">D</span></span>, where D is the coefficient determinant and D<sub>x</sub> is D with the x-column replaced by the constants column (similarly for D<sub>y</sub>, D<sub>z</sub>). (3) <b>Gauss elimination</b> — echelon form of [A | B], then back substitution (works in all cases).</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s161",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>For a square matrix A, a scalar λ is an <b>eigenvalue</b> if there is a non-zero vector X with <b>AX = λX</b> — the matrix stretches X by λ without changing its direction; X is the <b>eigenvector</b>. Eigenvalues come from the <b>characteristic equation |A − λI| = 0</b>; for each λ, eigenvectors come from solving (A − λI)X = 0. Eigenvalues of A<sup>T</sup> are the same as those of A.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s162",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "Sum of eigenvalues",
+   "body": "<span class=\"lbl\">Sum of eigenvalues</span> = Trace(A) = sum of the diagonal entries",
+   "kind": "formula"
+  },
+  {
+   "id": "s163",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "Product of eigenvalues",
+   "body": "<span class=\"lbl\">Product of eigenvalues</span> = |A|",
+   "kind": "formula"
+  },
+  {
+   "id": "s164",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "Triangular / diagonal matrix",
+   "body": "<span class=\"lbl\">Triangular / diagonal matrix:</span> the eigenvalues are exactly its diagonal entries",
+   "kind": "formula"
+  },
+  {
+   "id": "s165",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "Eigenvalues of A−¹",
+   "body": "<span class=\"lbl\">Eigenvalues of A<sup>−1</sup>:</span> <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">λ</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s166",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "of Ak",
+   "body": "<span class=\"lbl\">of A<sup>k</sup>:</span> λ<sup>k</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s167",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "of (A + cI)",
+   "body": "<span class=\"lbl\">of (A + cI):</span> λ + c",
+   "kind": "formula"
+  },
+  {
+   "id": "s168",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "of (kA)",
+   "body": "<span class=\"lbl\">of (kA):</span> kλ",
+   "kind": "formula"
+  },
+  {
+   "id": "s169",
+   "category": "unit1",
+   "section": "Eigenvalues and Eigenvectors",
+   "name": "THEORY — Cayley–Hamilton Theorem",
+   "body": "<span class=\"th\">THEORY — Cayley–Hamilton Theorem:</span>\n<p><b>Every square matrix satisfies its own characteristic equation.</b> Uses: (1) finding A<sup>−1</sup> — write the characteristic equation, multiply by A<sup>−1</sup>, and rearrange; (2) expressing high powers (A<sup>3</sup>, A<sup>4</sup>, …) in terms of I and A (for 2×2) — which makes matrix-polynomial questions short.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s170",
+   "category": "unit2",
+   "section": "Taylor and Maclaurin Series",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>The Taylor series rewrites a function as an infinite <b>polynomial</b> around a point x = a — this is how approximate values such as sin 31°, e<sup>0.1</sup> or ln 1.02 are computed. The special case a = 0 is the <b>Maclaurin series</b>.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s171",
+   "category": "unit2",
+   "section": "Taylor and Maclaurin Series",
+   "name": "Taylor series",
+   "body": "<span class=\"lbl\">Taylor series:</span> f(x) = f(a) + (x−a) f′(a) + <span class=\"frac\"><span class=\"t\">(x−a)<sup>2</sup></span><span class=\"b\">2!</span></span> f″(a) + <span class=\"frac\"><span class=\"t\">(x−a)<sup>3</sup></span><span class=\"b\">3!</span></span> f‴(a) + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s172",
+   "category": "unit2",
+   "section": "Taylor and Maclaurin Series",
+   "name": "Maclaurin series",
+   "body": "<span class=\"lbl\">Maclaurin series:</span> f(x) = f(0) + x f′(0) + <span class=\"frac\"><span class=\"t\">x<sup>2</sup></span><span class=\"b\">2!</span></span> f″(0) + <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">3!</span></span> f‴(0) + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s173",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "eˣ",
+   "body": "<span class=\"lbl\">e<sup>x</sup></span> = 1 + x + <span class=\"frac\"><span class=\"t\">x<sup>2</sup></span><span class=\"b\">2!</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">3!</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>4</sup></span><span class=\"b\">4!</span></span> + … &nbsp; <span class=\"small\">(all x)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s174",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "sin x",
+   "body": "<span class=\"lbl\">sin x</span> = x − <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">3!</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>5</sup></span><span class=\"b\">5!</span></span> − <span class=\"frac\"><span class=\"t\">x<sup>7</sup></span><span class=\"b\">7!</span></span> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s175",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "cos x",
+   "body": "<span class=\"lbl\">cos x</span> = 1 − <span class=\"frac\"><span class=\"t\">x<sup>2</sup></span><span class=\"b\">2!</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>4</sup></span><span class=\"b\">4!</span></span> − <span class=\"frac\"><span class=\"t\">x<sup>6</sup></span><span class=\"b\">6!</span></span> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s176",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "tan x",
+   "body": "<span class=\"lbl\">tan x</span> = x + <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">3</span></span> + <span class=\"frac\"><span class=\"t\">2x<sup>5</sup></span><span class=\"b\">15</span></span> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s177",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "tan−¹x",
+   "body": "<span class=\"lbl\">tan<sup>−1</sup>x</span> = x − <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">3</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>5</sup></span><span class=\"b\">5</span></span> − …",
+   "kind": "formula"
+  },
+  {
+   "id": "s178",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "ln(1 + x)",
+   "body": "<span class=\"lbl\">ln(1 + x)</span> = x − <span class=\"frac\"><span class=\"t\">x<sup>2</sup></span><span class=\"b\">2</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">3</span></span> − <span class=\"frac\"><span class=\"t\">x<sup>4</sup></span><span class=\"b\">4</span></span> + … &nbsp; (−1 &lt; x ≤ 1)",
+   "kind": "formula"
+  },
+  {
+   "id": "s179",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "ln(1 − x)",
+   "body": "<span class=\"lbl\">ln(1 − x)</span> = − [ x + <span class=\"frac\"><span class=\"t\">x<sup>2</sup></span><span class=\"b\">2</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">3</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>4</sup></span><span class=\"b\">4</span></span> + … ] &nbsp; (−1 ≤ x &lt; 1)",
+   "kind": "formula"
+  },
+  {
+   "id": "s180",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "aˣ",
+   "body": "<span class=\"lbl\">a<sup>x</sup></span> = 1 + x(ln a) + <span class=\"frac\"><span class=\"t\">x<sup>2</sup>(ln a)<sup>2</sup></span><span class=\"b\">2!</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>3</sup>(ln a)<sup>3</sup></span><span class=\"b\">3!</span></span> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s181",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "(1 + x)ⁿ",
+   "body": "<span class=\"lbl\">(1 + x)<sup>n</sup></span> = 1 + nx + <span class=\"frac\"><span class=\"t\">n(n−1)</span><span class=\"b\">2!</span></span> x<sup>2</sup> + <span class=\"frac\"><span class=\"t\">n(n−1)(n−2)</span><span class=\"b\">3!</span></span> x<sup>3</sup> + … &nbsp; <span class=\"small\">(|x| &lt; 1 when n is not a positive integer)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s182",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "(1 − x)−¹",
+   "body": "<span class=\"lbl\">(1 − x)<sup>−1</sup></span> = 1 + x + x<sup>2</sup> + x<sup>3</sup> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s183",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "(1 − x)−²",
+   "body": "<span class=\"lbl\">(1 − x)<sup>−2</sup></span> = 1 + 2x + 3x<sup>2</sup> + 4x<sup>3</sup> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s184",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "sin−¹x",
+   "body": "<span class=\"lbl\">sin<sup>−1</sup>x</span> = x + <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">6</span></span> + <span class=\"frac\"><span class=\"t\">3x<sup>5</sup></span><span class=\"b\">40</span></span> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s185",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "sinh x",
+   "body": "<span class=\"lbl\">sinh x</span> = x + <span class=\"frac\"><span class=\"t\">x<sup>3</sup></span><span class=\"b\">3!</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>5</sup></span><span class=\"b\">5!</span></span> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s186",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "cosh x",
+   "body": "<span class=\"lbl\">cosh x</span> = 1 + <span class=\"frac\"><span class=\"t\">x<sup>2</sup></span><span class=\"b\">2!</span></span> + <span class=\"frac\"><span class=\"t\">x<sup>4</sup></span><span class=\"b\">4!</span></span> + …",
+   "kind": "formula"
+  },
+  {
+   "id": "s187",
+   "category": "unit2",
+   "section": "Standard Expansions (memorise these)",
+   "name": "RULE — How expansions are used in exams",
+   "body": "<span class=\"th\">RULE — How expansions are used in exams:</span>\n<p>To expand a function “in powers of (x − a)”, either use the Taylor formula directly, or substitute t = x − a and use a standard Maclaurin expansion in t. To find an <b>approximate value</b>, keep only the first 2–3 terms — the later terms are negligibly small when |x| is small. sinh x = <span class=\"frac\"><span class=\"t\">e<sup>x</sup> − e<sup>−x</sup></span><span class=\"b\">2</span></span>, cosh x = <span class=\"frac\"><span class=\"t\">e<sup>x</sup> + e<sup>−x</sup></span><span class=\"b\">2</span></span>, and cosh<sup>2</sup>x − sinh<sup>2</sup>x = 1.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s188",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "Dⁿ [ eᵃˣ ]",
+   "body": "<span class=\"lbl\">D<sup>n</sup> [ e<sup>ax</sup> ]</span> = a<sup>n</sup> e<sup>ax</sup> &nbsp;&nbsp; <span class=\"small\">(D = d/dx)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s189",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "Dⁿ [ xⁿ ]",
+   "body": "<span class=\"lbl\">D<sup>n</sup> [ x<sup>n</sup> ]</span> = n!",
+   "kind": "formula"
+  },
+  {
+   "id": "s190",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "Dⁿ [ sin(ax + b) ]",
+   "body": "<span class=\"lbl\">D<sup>n</sup> [ sin(ax + b) ]</span> = a<sup>n</sup> · sin(ax + b + <span class=\"frac\"><span class=\"t\">nπ</span><span class=\"b\">2</span></span>)",
+   "kind": "formula"
+  },
+  {
+   "id": "s191",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "Dⁿ [ cos(ax + b) ]",
+   "body": "<span class=\"lbl\">D<sup>n</sup> [ cos(ax + b) ]</span> = a<sup>n</sup> · cos(ax + b + <span class=\"frac\"><span class=\"t\">nπ</span><span class=\"b\">2</span></span>)",
+   "kind": "formula"
+  },
+  {
+   "id": "s192",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "Dⁿ [ (ax + b)m ]",
+   "body": "<span class=\"lbl\">D<sup>n</sup> [ (ax + b)<sup>m</sup> ]</span> = m(m−1)(m−2)…(m−n+1) · a<sup>n</sup> · (ax + b)<sup>m−n</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s193",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "Dⁿ [ 1",
+   "body": "<span class=\"lbl\">D<sup>n</sup> [ <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">x + a</span></span> ]</span> = <span class=\"frac\"><span class=\"t\">(−1)<sup>n</sup> n!</span><span class=\"b\">(x + a)<sup>n+1</sup></span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s194",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "Dⁿ [ ln(ax + b) ]",
+   "body": "<span class=\"lbl\">D<sup>n</sup> [ ln(ax + b) ]</span> = <span class=\"frac\"><span class=\"t\">(−1)<sup>n−1</sup> (n−1)! a<sup>n</sup></span><span class=\"b\">(ax + b)<sup>n</sup></span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s195",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "Dⁿ [ eᵃˣ sin(bx + c) ]",
+   "body": "<span class=\"lbl\">D<sup>n</sup> [ e<sup>ax</sup> sin(bx + c) ]</span> = (a<sup>2</sup> + b<sup>2</sup>)<sup>n/2</sup> · e<sup>ax</sup> · sin(bx + c + nφ), &nbsp; where φ = tan<sup>−1</sup><span class=\"frac\"><span class=\"t\">b</span><span class=\"b\">a</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s196",
+   "category": "unit2",
+   "section": "Successive Differentiation (n-th Derivatives)",
+   "name": "THEORY — Leibnitz's Theorem (n-th derivative of a product)",
+   "body": "<span class=\"th\">THEORY — Leibnitz's Theorem (n-th derivative of a product):</span>\n<p>(uv)<sup>(n)</sup> = <sup>n</sup>C<sub>0</sub> u<sub>n</sub>v + <sup>n</sup>C<sub>1</sub> u<sub>n−1</sub>v<sub>1</sub> + <sup>n</sup>C<sub>2</sub> u<sub>n−2</sub>v<sub>2</sub> + … + <sup>n</sup>C<sub>n</sub> u v<sub>n</sub></p>\n<p><b>Working trick:</b> choose as one factor a polynomial (x<sup>2</sup>, x<sup>3</sup>, …) — its derivatives become 0 after a few steps, so the series stops early and the answer stays short.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s197",
+   "category": "unit2",
+   "section": "Partial Differentiation and Euler's Theorem",
+   "name": "THEORY — Homogeneous functions",
+   "body": "<span class=\"th\">THEORY — Homogeneous functions:</span>\n<p>f(x, y) is <b>homogeneous of degree n</b> if f(tx, ty) = t<sup>n</sup> f(x, y). Quick test: in every term, the total power of x and y together is the same — e.g. x<sup>3</sup> + x<sup>2</sup>y + xy<sup>2</sup> + y<sup>3</sup> is homogeneous of degree 3. Partial derivative <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> means: differentiate w.r.t. x treating y as a constant.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s198",
+   "category": "unit2",
+   "section": "Partial Differentiation and Euler's Theorem",
+   "name": "Euler's Theorem",
+   "body": "<span class=\"lbl\">Euler's Theorem:</span> if u is homogeneous of degree n, then &nbsp; x·<span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> + y·<span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂y</span></span> = n·u",
+   "kind": "formula"
+  },
+  {
+   "id": "s199",
+   "category": "unit2",
+   "section": "Partial Differentiation and Euler's Theorem",
+   "name": "Second-order form",
+   "body": "<span class=\"lbl\">Second-order form:</span> x<sup>2</sup><span class=\"frac\"><span class=\"t\">∂<sup>2</sup>u</span><span class=\"b\">∂x<sup>2</sup></span></span> + 2xy<span class=\"frac\"><span class=\"t\">∂<sup>2</sup>u</span><span class=\"b\">∂x∂y</span></span> + y<sup>2</sup><span class=\"frac\"><span class=\"t\">∂<sup>2</sup>u</span><span class=\"b\">∂y<sup>2</sup></span></span> = n(n−1)·u",
+   "kind": "formula"
+  },
+  {
+   "id": "s200",
+   "category": "unit2",
+   "section": "Partial Differentiation and Euler's Theorem",
+   "name": "If F(u) is homogeneous of degree n",
+   "body": "<span class=\"lbl\">If F(u) is homogeneous of degree n:</span> &nbsp; x·<span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> + y·<span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂y</span></span> = n · <span class=\"frac\"><span class=\"t\">F(u)</span><span class=\"b\">F′(u)</span></span> &nbsp; <span class=\"small\">(used when u = sin<sup>−1</sup>(…), tan<sup>−1</sup>(…), ln(…) etc. — first identify F and n, the rest is routine)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s201",
+   "category": "unit2",
+   "section": "Total Derivative, Errors, Jacobian",
+   "name": "Total derivative",
+   "body": "<span class=\"lbl\">Total derivative</span> (z = f(x, y), with x, y functions of t): &nbsp; <span class=\"frac\"><span class=\"t\">dz</span><span class=\"b\">dt</span></span> = <span class=\"frac\"><span class=\"t\">∂z</span><span class=\"b\">∂x</span></span>·<span class=\"frac\"><span class=\"t\">dx</span><span class=\"b\">dt</span></span> + <span class=\"frac\"><span class=\"t\">∂z</span><span class=\"b\">∂y</span></span>·<span class=\"frac\"><span class=\"t\">dy</span><span class=\"b\">dt</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s202",
+   "category": "unit2",
+   "section": "Total Derivative, Errors, Jacobian",
+   "name": "Total differential",
+   "body": "<span class=\"lbl\">Total differential:</span> dz = <span class=\"frac\"><span class=\"t\">∂z</span><span class=\"b\">∂x</span></span> dx + <span class=\"frac\"><span class=\"t\">∂z</span><span class=\"b\">∂y</span></span> dy",
+   "kind": "formula"
+  },
+  {
+   "id": "s203",
+   "category": "unit2",
+   "section": "Total Derivative, Errors, Jacobian",
+   "name": "Approximate error",
+   "body": "<span class=\"lbl\">Approximate error:</span> Δz ≈ <span class=\"frac\"><span class=\"t\">∂z</span><span class=\"b\">∂x</span></span> Δx + <span class=\"frac\"><span class=\"t\">∂z</span><span class=\"b\">∂y</span></span> Δy",
+   "kind": "formula"
+  },
+  {
+   "id": "s204",
+   "category": "unit2",
+   "section": "Total Derivative, Errors, Jacobian",
+   "name": "Implicit function f(x, y) = 0",
+   "body": "<span class=\"lbl\">Implicit function f(x, y) = 0:</span> <span class=\"frac\"><span class=\"t\">dy</span><span class=\"b\">dx</span></span> = − <span class=\"frac\"><span class=\"t\">∂f/∂x</span><span class=\"b\">∂f/∂y</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s205",
+   "category": "unit2",
+   "section": "Total Derivative, Errors, Jacobian",
+   "name": "Jacobian",
+   "body": "<span class=\"lbl\">Jacobian:</span> J = <span class=\"frac\"><span class=\"t\">∂(u, v)</span><span class=\"b\">∂(x, y)</span></span> = <span class=\"mat\"><span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> &nbsp; <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂y</span></span><br><span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂x</span></span> &nbsp; <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂y</span></span></span> &nbsp;&nbsp; and &nbsp; J · J′ = 1, where J′ = <span class=\"frac\"><span class=\"t\">∂(x, y)</span><span class=\"b\">∂(u, v)</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s206",
+   "category": "unit2",
+   "section": "Total Derivative, Errors, Jacobian",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>If <b>J = 0</b>, then u and v are <b>functionally dependent</b> — one can be expressed in terms of the other (e.g. u = x + y and v = (x + y)<sup>2</sup>). If J ≠ 0, they are independent. The chain rule for Jacobians also holds: <span class=\"frac\"><span class=\"t\">∂(u, v)</span><span class=\"b\">∂(x, y)</span></span> = <span class=\"frac\"><span class=\"t\">∂(u, v)</span><span class=\"b\">∂(s, t)</span></span> · <span class=\"frac\"><span class=\"t\">∂(s, t)</span><span class=\"b\">∂(x, y)</span></span>.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s207",
+   "category": "unit2",
+   "section": "Maxima and Minima of f(x, y)",
+   "name": "THEORY — Method (steps)",
+   "body": "<span class=\"th\">THEORY — Method (steps):</span>\n<ul>\n<li><b>Step 1:</b> Solve <span class=\"frac\"><span class=\"t\">∂f</span><span class=\"b\">∂x</span></span> = 0 and <span class=\"frac\"><span class=\"t\">∂f</span><span class=\"b\">∂y</span></span> = 0 together to get the stationary points.</li>\n<li><b>Step 2:</b> At each point compute r = <span class=\"frac\"><span class=\"t\">∂<sup>2</sup>f</span><span class=\"b\">∂x<sup>2</sup></span></span>, &nbsp; s = <span class=\"frac\"><span class=\"t\">∂<sup>2</sup>f</span><span class=\"b\">∂x∂y</span></span>, &nbsp; t = <span class=\"frac\"><span class=\"t\">∂<sup>2</sup>f</span><span class=\"b\">∂y<sup>2</sup></span></span>.</li>\n<li><b>Step 3:</b> Decide by rt − s<sup>2</sup>: <b>&gt; 0 with r &lt; 0 → Maximum</b> । <b>&gt; 0 with r &gt; 0 → Minimum</b> । <b>&lt; 0 → Saddle point</b> (neither max nor min) । <b>= 0 → Doubtful case</b>, needs further investigation.</li>\n</ul>",
+   "kind": "theory"
+  },
+  {
+   "id": "s208",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Definition",
+   "body": "<span class=\"lbl\">Definition:</span> Γ(n) = ∫<sub>0</sub><sup>∞</sup> e<sup>−x</sup> x<sup>n−1</sup> dx &nbsp; (n &gt; 0)",
+   "kind": "formula"
+  },
+  {
+   "id": "s209",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Γ(n + 1)",
+   "body": "Γ(n + 1) = n · Γ(n)",
+   "kind": "formula"
+  },
+  {
+   "id": "s210",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Γ(1)",
+   "body": "Γ(1) = 1",
+   "kind": "formula"
+  },
+  {
+   "id": "s211",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Γ( (1)/(2) )",
+   "body": "Γ(<span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">2</span></span>) = √π",
+   "kind": "formula"
+  },
+  {
+   "id": "s212",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "For whole numbers",
+   "body": "<span class=\"lbl\">For whole numbers:</span> Γ(n + 1) = n! &nbsp; <span class=\"small\">(e.g. Γ(5) = 4! = 24)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s213",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Useful values",
+   "body": "<span class=\"lbl\">Useful values:</span> Γ(<span class=\"frac\"><span class=\"t\">3</span><span class=\"b\">2</span></span>) = <span class=\"frac\"><span class=\"t\">√π</span><span class=\"b\">2</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s214",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Γ( (5)/(2) )",
+   "body": "Γ(<span class=\"frac\"><span class=\"t\">5</span><span class=\"b\">2</span></span>) = <span class=\"frac\"><span class=\"t\">3√π</span><span class=\"b\">4</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s215",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Γ( (7)/(2) )",
+   "body": "Γ(<span class=\"frac\"><span class=\"t\">7</span><span class=\"b\">2</span></span>) = <span class=\"frac\"><span class=\"t\">15√π</span><span class=\"b\">8</span></span> &nbsp; <span class=\"small\">(each step multiplies by the previous n)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s216",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Reflection formula",
+   "body": "<span class=\"lbl\">Reflection formula:</span> Γ(n) · Γ(1 − n) = <span class=\"frac\"><span class=\"t\">π</span><span class=\"b\">sin(nπ)</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s217",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "Duplication formula",
+   "body": "<span class=\"lbl\">Duplication formula:</span> Γ(n) · Γ(n + <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">2</span></span>) = <span class=\"frac\"><span class=\"t\">√π</span><span class=\"b\">2<sup>2n−1</sup></span></span> · Γ(2n)",
+   "kind": "formula"
+  },
+  {
+   "id": "s218",
+   "category": "unit3",
+   "section": "Gamma Function",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>The Gamma function is the <b>extension of the factorial</b> to fractions and all positive real numbers: Γ(n + 1) = n! is the bridge. Whenever an integral contains e<sup>−x</sup>x<sup>n−1</sup> from 0 to ∞, or a product of Gamma values is asked, these relations are the entire method: reduce every argument step-by-step (using Γ(n+1) = nΓ(n)) until it reaches 1, 1/2, or a whole-number factorial.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s219",
+   "category": "unit3",
+   "section": "Beta Function",
+   "name": "Definition",
+   "body": "<span class=\"lbl\">Definition:</span> B(m, n) = ∫<sub>0</sub><sup>1</sup> x<sup>m−1</sup> (1 − x)<sup>n−1</sup> dx",
+   "kind": "formula"
+  },
+  {
+   "id": "s220",
+   "category": "unit3",
+   "section": "Beta Function",
+   "name": "Infinite form",
+   "body": "<span class=\"lbl\">Infinite form:</span> B(m, n) = ∫<sub>0</sub><sup>∞</sup> <span class=\"frac\"><span class=\"t\">x<sup>m−1</sup></span><span class=\"b\">(1 + x)<sup>m+n</sup></span></span> dx",
+   "kind": "formula"
+  },
+  {
+   "id": "s221",
+   "category": "unit3",
+   "section": "Beta Function",
+   "name": "Beta–Gamma relation",
+   "body": "<span class=\"lbl\">Beta–Gamma relation:</span> B(m, n) = <span class=\"frac\"><span class=\"t\">Γ(m) · Γ(n)</span><span class=\"b\">Γ(m + n)</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s222",
+   "category": "unit3",
+   "section": "Beta Function",
+   "name": "Symmetry",
+   "body": "<span class=\"lbl\">Symmetry:</span> B(m, n) = B(n, m)",
+   "kind": "formula"
+  },
+  {
+   "id": "s223",
+   "category": "unit3",
+   "section": "Beta Function",
+   "name": "Trigonometric form",
+   "body": "<span class=\"lbl\">Trigonometric form:</span> B(m, n) = 2 ∫<sub>0</sub><sup>π/2</sup> sin<sup>2m−1</sup>θ · cos<sup>2n−1</sup>θ dθ",
+   "kind": "formula"
+  },
+  {
+   "id": "s224",
+   "category": "unit3",
+   "section": "Beta Function",
+   "name": "The famous shortcut that follows",
+   "body": "<span class=\"lbl\">The famous shortcut that follows:</span> ∫<sub>0</sub><sup>π/2</sup> sin<sup>m</sup>x · cos<sup>n</sup>x dx = <span class=\"frac\"><span class=\"t\">Γ(<span class=\"frac\"><span class=\"t\">m+1</span><span class=\"b\">2</span></span>) · Γ(<span class=\"frac\"><span class=\"t\">n+1</span><span class=\"b\">2</span></span>)</span><span class=\"b\">2 · Γ(<span class=\"frac\"><span class=\"t\">m+n+2</span><span class=\"b\">2</span></span>)</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s225",
+   "category": "unit3",
+   "section": "Wallis' Formula and the Reduction Formula",
+   "name": "Reduction formula",
+   "body": "<span class=\"lbl\">Reduction formula:</span> if I<sub>n</sub> = ∫<sub>0</sub><sup>π/2</sup> sin<sup>n</sup>x dx, then &nbsp; I<sub>n</sub> = <span class=\"frac\"><span class=\"t\">n − 1</span><span class=\"b\">n</span></span> · I<sub>n−2</sub> &nbsp; <span class=\"small\">(keep reducing until I<sub>0</sub> = π/2 or I<sub>1</sub> = 1)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s226",
+   "category": "unit3",
+   "section": "Wallis' Formula and the Reduction Formula",
+   "name": "Wallis — n even",
+   "body": "<span class=\"lbl\">Wallis — n even:</span> ∫<sub>0</sub><sup>π/2</sup> sin<sup>n</sup>x dx = <span class=\"frac\"><span class=\"t\">(n−1)(n−3)…1</span><span class=\"b\">n(n−2)…2</span></span> × <span class=\"frac\"><span class=\"t\">π</span><span class=\"b\">2</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s227",
+   "category": "unit3",
+   "section": "Wallis' Formula and the Reduction Formula",
+   "name": "Wallis — n odd",
+   "body": "<span class=\"lbl\">Wallis — n odd:</span> ∫<sub>0</sub><sup>π/2</sup> sin<sup>n</sup>x dx = <span class=\"frac\"><span class=\"t\">(n−1)(n−3)…2</span><span class=\"b\">n(n−2)…3</span></span> &nbsp; <span class=\"small\">(no π/2 factor)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s228",
+   "category": "unit3",
+   "section": "Wallis' Formula and the Reduction Formula",
+   "name": "Famous result",
+   "body": "<span class=\"lbl\">Famous result:</span> ∫<sub>0</sub><sup>π/2</sup> ln(sin x) dx = − <span class=\"frac\"><span class=\"t\">π</span><span class=\"b\">2</span></span> ln 2",
+   "kind": "formula"
+  },
+  {
+   "id": "s229",
+   "category": "unit3",
+   "section": "Properties of Definite Integrals",
+   "name": "King's property",
+   "body": "<span class=\"lbl\">King's property:</span> ∫<sub>a</sub><sup>b</sup> f(x) dx = ∫<sub>a</sub><sup>b</sup> f(a + b − x) dx &nbsp; <span class=\"small\">— replacing x by (a + b − x) often makes a hard integral easy; adding the two forms is the standard trick</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s230",
+   "category": "unit3",
+   "section": "Properties of Definite Integrals",
+   "name": "∫−aᵃ f(x) dx",
+   "body": "<span class=\"lbl\">∫<sub>−a</sub><sup>a</sup> f(x) dx:</span> = 2 ∫<sub>0</sub><sup>a</sup> f(x) dx if f is <b>even</b> (f(−x) = f(x)); &nbsp; = 0 if f is <b>odd</b> (f(−x) = −f(x))",
+   "kind": "formula"
+  },
+  {
+   "id": "s231",
+   "category": "unit3",
+   "section": "Properties of Definite Integrals",
+   "name": "∫0²ᵃ f(x) dx",
+   "body": "<span class=\"lbl\">∫<sub>0</sub><sup>2a</sup> f(x) dx:</span> = 2 ∫<sub>0</sub><sup>a</sup> f(x) dx if f(2a − x) = f(x); &nbsp; = 0 if f(2a − x) = −f(x)",
+   "kind": "formula"
+  },
+  {
+   "id": "s232",
+   "category": "unit3",
+   "section": "Properties of Definite Integrals",
+   "name": "∫0ᵃ f(x) dx",
+   "body": "<span class=\"lbl\">∫<sub>0</sub><sup>a</sup> f(x) dx</span> = ∫<sub>0</sub><sup>a</sup> f(a − x) dx",
+   "kind": "formula"
+  },
+  {
+   "id": "s233",
+   "category": "unit3",
+   "section": "Properties of Definite Integrals",
+   "name": "Swapping limits",
+   "body": "<span class=\"lbl\">Swapping limits:</span> ∫<sub>a</sub><sup>b</sup> f = − ∫<sub>b</sub><sup>a</sup> f",
+   "kind": "formula"
+  },
+  {
+   "id": "s234",
+   "category": "unit3",
+   "section": "Properties of Definite Integrals",
+   "name": "∫aᵃ f",
+   "body": "∫<sub>a</sub><sup>a</sup> f = 0",
+   "kind": "formula"
+  },
+  {
+   "id": "s235",
+   "category": "unit3",
+   "section": "Properties of Definite Integrals",
+   "name": "∫aᵇ f",
+   "body": "∫<sub>a</sub><sup>b</sup> f = ∫<sub>a</sub><sup>c</sup> f + ∫<sub>c</sub><sup>b</sup> f",
+   "kind": "formula"
+  },
+  {
+   "id": "s236",
+   "category": "unit3",
+   "section": "Properties of Definite Integrals",
+   "name": "The a/2 shortcut",
+   "body": "<span class=\"lbl\">The a/2 shortcut:</span> ∫<sub>0</sub><sup>a</sup> <span class=\"frac\"><span class=\"t\">f(x)</span><span class=\"b\">f(x) + f(a − x)</span></span> dx = <span class=\"frac\"><span class=\"t\">a</span><span class=\"b\">2</span></span> &nbsp; <span class=\"small\">— the answer without integrating at all</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s237",
+   "category": "unit3",
+   "section": "Double Integrals",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>∬<sub>R</sub> f(x, y) dA is the <b>volume under the surface</b> z = f(x, y) over the region R. With f = 1 it gives the <b>area</b> of R. Evaluation is iterative: integrate with respect to one variable (holding the other constant), then the other. <b>Change of order of integration</b> means reversing this order — the method is always: (1) sketch the region from the given limits, (2) re-read the limits in the other direction using strips parallel to the other axis. There is no formula for the new limits — the sketch gives them.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s238",
+   "category": "unit3",
+   "section": "Double Integrals",
+   "name": "Area of region R",
+   "body": "<span class=\"lbl\">Area of region R:</span> A = ∬<sub>R</sub> dA = ∬<sub>R</sub> dy dx",
+   "kind": "formula"
+  },
+  {
+   "id": "s239",
+   "category": "unit3",
+   "section": "Double Integrals",
+   "name": "Volume under z = f(x, y)",
+   "body": "<span class=\"lbl\">Volume under z = f(x, y):</span> V = ∬<sub>R</sub> f(x, y) dA",
+   "kind": "formula"
+  },
+  {
+   "id": "s240",
+   "category": "unit3",
+   "section": "Double Integrals",
+   "name": "Area between two curves",
+   "body": "<span class=\"lbl\">Area between two curves</span> y = f(x) and y = g(x) (f above g), from a to b: &nbsp; A = ∫<sub>a</sub><sup>b</sup> [ f(x) − g(x) ] dx",
+   "kind": "formula"
+  },
+  {
+   "id": "s241",
+   "category": "unit3",
+   "section": "Double Integrals",
+   "name": "Polar transformation",
+   "body": "<span class=\"lbl\">Polar transformation:</span> x = r cosθ, &nbsp; y = r sinθ, &nbsp; dx dy → <b>r dr dθ</b> &nbsp; <span class=\"small\">(the extra factor r is the Jacobian — forgetting it is the most common error)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s242",
+   "category": "unit3",
+   "section": "Triple Integrals",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>∭<sub>V</sub> f(x, y, z) dV extends the same idea to three dimensions; with f = 1 it gives the <b>volume</b> of the solid. Evaluate it as three nested single integrals, innermost first, using the surfaces that bound the solid as limits.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s243",
+   "category": "unit3",
+   "section": "Triple Integrals",
+   "name": "Volume of a solid",
+   "body": "<span class=\"lbl\">Volume of a solid:</span> V = ∭ dV = ∭ dz dy dx <span class=\"small\">(order as per the limits given)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s244",
+   "category": "unit3",
+   "section": "Triple Integrals",
+   "name": "Spherical polar coordinates",
+   "body": "<span class=\"lbl\">Spherical polar coordinates:</span> x = r sinφ cosθ, &nbsp; y = r sinφ sinθ, &nbsp; z = r cosφ ; &nbsp; dV = r<sup>2</sup> sinφ dr dφ dθ &nbsp; <span class=\"small\">(best for spheres)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s245",
+   "category": "unit3",
+   "section": "Triple Integrals",
+   "name": "Cylindrical polar coordinates",
+   "body": "<span class=\"lbl\">Cylindrical polar coordinates:</span> x = r cosθ, &nbsp; y = r sinθ, &nbsp; z = z ; &nbsp; dV = r dr dθ dz &nbsp; <span class=\"small\">(best for cylinders)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s246",
+   "category": "unit3",
+   "section": "Triple Integrals",
+   "name": "Area under a curve",
+   "body": "<span class=\"lbl\">Area under a curve</span> y = f(x), from a to b: &nbsp; A = ∫<sub>a</sub><sup>b</sup> y dx",
+   "kind": "formula"
+  },
+  {
+   "id": "s247",
+   "category": "unit4",
+   "section": "",
+   "name": "THEORY — Order, Degree, and the Shape of the Answer",
+   "body": "<span class=\"th\">THEORY — Order, Degree, and the Shape of the Answer:</span>\n<ul>\n<li><b>Order</b> = the order of the highest derivative present (y″ present → order 2).</li>\n<li><b>Degree</b> = the power of that highest derivative — defined only when the equation is a polynomial in the derivatives (no derivative inside a root or a fraction).</li>\n<li><b>General solution = CF + PI.</b> The <b>CF</b> (Complementary Function) is the solution of the homogeneous equation f(D)y = 0 and contains all the arbitrary constants (as many as the order). The <b>PI</b> (Particular Integral) is any one solution produced by the right-hand side Q(x).</li>\n</ul>",
+   "kind": "theory"
+  },
+  {
+   "id": "s248",
+   "category": "unit4",
+   "section": "First Order — Types and Methods",
+   "name": "1. Variable separable",
+   "body": "<span class=\"lbl\">1. Variable separable:</span> <span class=\"frac\"><span class=\"t\">dy</span><span class=\"b\">dx</span></span> = f(x)·g(y) → rewrite as <span class=\"frac\"><span class=\"t\">dy</span><span class=\"b\">g(y)</span></span> = f(x) dx and integrate both sides.",
+   "kind": "formula"
+  },
+  {
+   "id": "s249",
+   "category": "unit4",
+   "section": "First Order — Types and Methods",
+   "name": "2. Homogeneous",
+   "body": "<span class=\"lbl\">2. Homogeneous:</span> <span class=\"frac\"><span class=\"t\">dy</span><span class=\"b\">dx</span></span> = F(<span class=\"frac\"><span class=\"t\">y</span><span class=\"b\">x</span></span>) → substitute <b>y = v·x</b>, so that <span class=\"frac\"><span class=\"t\">dy</span><span class=\"b\">dx</span></span> = v + x<span class=\"frac\"><span class=\"t\">dv</span><span class=\"b\">dx</span></span>; the equation becomes separable in v and x. (Equations reducible to this form use the shift x = X + h, y = Y + k to remove constants.)",
+   "kind": "formula"
+  },
+  {
+   "id": "s250",
+   "category": "unit4",
+   "section": "First Order — Types and Methods",
+   "name": "3. Exact equation",
+   "body": "<span class=\"lbl\">3. Exact equation:</span> M dx + N dy = 0 is <b>exact ⇔</b> <span class=\"frac\"><span class=\"t\">∂M</span><span class=\"b\">∂y</span></span> = <span class=\"frac\"><span class=\"t\">∂N</span><span class=\"b\">∂x</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s251",
+   "category": "unit4",
+   "section": "First Order — Types and Methods",
+   "name": "Solution of an exact equation",
+   "body": "<span class=\"lbl\">Solution of an exact equation:</span> ∫ M dx <span class=\"small\">(treating y as constant)</span> + ∫ (those terms of N which do <b>not</b> contain x) dy = C",
+   "kind": "formula"
+  },
+  {
+   "id": "s252",
+   "category": "unit4",
+   "section": "First Order — Types and Methods",
+   "name": "4. Linear equation",
+   "body": "<span class=\"lbl\">4. Linear equation:</span> <span class=\"frac\"><span class=\"t\">dy</span><span class=\"b\">dx</span></span> + P(x)·y = Q(x)",
+   "kind": "formula"
+  },
+  {
+   "id": "s253",
+   "category": "unit4",
+   "section": "First Order — Types and Methods",
+   "name": "THEORY — Linear equation, step by step",
+   "body": "<span class=\"th\">THEORY — Linear equation, step by step:</span>\n<ul>\n<li><b>Step 1:</b> First force the equation into the exact form above — the coefficient of dy/dx must be 1.</li>\n<li><b>Step 2:</b> Integrating Factor: <b>IF = e<sup>∫ P dx</sup></b>.</li>\n<li><b>Step 3:</b> Write the solution directly: <b>y · IF = ∫ (Q · IF) dx + C</b>.</li>\n<li>The same method works with roles swapped: <span class=\"frac\"><span class=\"t\">dx</span><span class=\"b\">dy</span></span> + P<sub>1</sub>(y)·x = Q<sub>1</sub>(y) has IF = e<sup>∫ P<sub>1</sub> dy</sup> and solution x · IF = ∫ (Q<sub>1</sub> · IF) dy + C.</li>\n</ul>",
+   "kind": "theory"
+  },
+  {
+   "id": "s254",
+   "category": "unit4",
+   "section": "First Order — Types and Methods",
+   "name": "5. Bernoulli's equation",
+   "body": "<span class=\"lbl\">5. Bernoulli's equation:</span> <span class=\"frac\"><span class=\"t\">dy</span><span class=\"b\">dx</span></span> + P·y = Q·y<sup>n</sup> → divide throughout by y<sup>n</sup>, then substitute <b>z = y<sup>1−n</sup></b>; it becomes a linear equation in z — solve by the IF method.",
+   "kind": "formula"
+  },
+  {
+   "id": "s255",
+   "category": "unit4",
+   "section": "Higher Order, Constant Coefficients (D = d/dx)",
+   "name": "Auxiliary equation",
+   "body": "<span class=\"lbl\">Auxiliary equation:</span> in f(D)y = 0, replace D by <b>m</b>: f(m) = 0. Its roots decide the CF:",
+   "kind": "formula"
+  },
+  {
+   "id": "s256",
+   "category": "unit4",
+   "section": "Higher Order, Constant Coefficients (D = d/dx)",
+   "name": "CF — two distinct real roots m1, m2",
+   "body": "<span class=\"lbl\">CF — two distinct real roots m<sub>1</sub>, m<sub>2</sub>:</span> y = C<sub>1</sub>e<sup>m<sub>1</sub>x</sup> + C<sub>2</sub>e<sup>m<sub>2</sub>x</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s257",
+   "category": "unit4",
+   "section": "Higher Order, Constant Coefficients (D = d/dx)",
+   "name": "CF — equal roots m, m",
+   "body": "<span class=\"lbl\">CF — equal roots m, m:</span> y = (C<sub>1</sub> + C<sub>2</sub>x) e<sup>mx</sup> &nbsp; <span class=\"small\">(for a triple root: (C<sub>1</sub> + C<sub>2</sub>x + C<sub>3</sub>x<sup>2</sup>)e<sup>mx</sup> — each repetition adds one more power of x)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s258",
+   "category": "unit4",
+   "section": "Higher Order, Constant Coefficients (D = d/dx)",
+   "name": "CF — complex roots α ± iβ",
+   "body": "<span class=\"lbl\">CF — complex roots α ± iβ:</span> y = e<sup>αx</sup> ( C<sub>1</sub> cos βx + C<sub>2</sub> sin βx ) &nbsp; <span class=\"small\">(if the same pair repeats, multiply the bracket by (C<sub>3</sub> + C<sub>4</sub>x) for the repeated pair)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s259",
+   "category": "unit4",
+   "section": "Higher Order, Constant Coefficients (D = d/dx)",
+   "name": "CF — purely imaginary roots ± iβ (α = 0)",
+   "body": "<span class=\"lbl\">CF — purely imaginary roots ± iβ (α = 0):</span> y = C<sub>1</sub> cos βx + C<sub>2</sub> sin βx",
+   "kind": "formula"
+  },
+  {
+   "id": "s260",
+   "category": "unit4",
+   "section": "Higher Order, Constant Coefficients (D = d/dx)",
+   "name": "Roots 0, 0",
+   "body": "<span class=\"lbl\">Roots 0, 0:</span> y = C<sub>1</sub> + C<sub>2</sub>x",
+   "kind": "formula"
+  },
+  {
+   "id": "s261",
+   "category": "unit4",
+   "section": "Particular Integral (PI) — The Four Working Rules",
+   "name": "PI-1 · For eᵃˣ",
+   "body": "<span class=\"lbl\">PI-1 · For e<sup>ax</sup>:</span> <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">f(D)</span></span> e<sup>ax</sup> = <span class=\"frac\"><span class=\"t\">e<sup>ax</sup></span><span class=\"b\">f(a)</span></span> &nbsp; <span class=\"small\">(put D = a)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s262",
+   "category": "unit4",
+   "section": "Particular Integral (PI) — The Four Working Rules",
+   "name": "Failure case f(a)",
+   "body": "<b>Failure case</b> f(a) = 0: &nbsp; = x · <span class=\"frac\"><span class=\"t\">e<sup>ax</sup></span><span class=\"b\">f′(a)</span></span> &nbsp; <span class=\"small\">(multiply by x and use f′(a); if that is also 0, repeat with x<sup>2</sup>/2! and f″(a))</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s263",
+   "category": "unit4",
+   "section": "Particular Integral (PI) — The Four Working Rules",
+   "name": "PI-2 · For sin ax / cos ax",
+   "body": "<span class=\"lbl\">PI-2 · For sin ax / cos ax:</span> in a function of D<sup>2</sup> only, <b>replace D<sup>2</sup> by −a<sup>2</sup></b>. If the denominator then becomes 0, multiply by x and differentiate the denominator w.r.t. D before substituting.",
+   "kind": "formula"
+  },
+  {
+   "id": "s264",
+   "category": "unit4",
+   "section": "Particular Integral (PI) — The Four Working Rules",
+   "name": "PI-3 · For xm (polynomial)",
+   "body": "<span class=\"lbl\">PI-3 · For x<sup>m</sup> (polynomial):</span> expand <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">f(D)</span></span> in ascending powers of D using the binomial series (keep only as many terms as needed — terms beyond D<sup>m</sup> vanish on x<sup>m</sup>), then operate term by term.",
+   "kind": "formula"
+  },
+  {
+   "id": "s265",
+   "category": "unit4",
+   "section": "Particular Integral (PI) — The Four Working Rules",
+   "name": "PI-4 · For eᵃˣ·V(x) (Shift theorem)",
+   "body": "<span class=\"lbl\">PI-4 · For e<sup>ax</sup>·V(x) (Shift theorem):</span> <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">f(D)</span></span> e<sup>ax</sup> V = e<sup>ax</sup> · <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">f(D + a)</span></span> V &nbsp; <span class=\"small\">(pull e<sup>ax</sup> out; every D inside becomes D + a; then apply rules 1–3 to V)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s266",
+   "category": "unit4",
+   "section": "Euler–Cauchy Equation",
+   "name": "Form",
+   "body": "<span class=\"lbl\">Form:</span> x<sup>2</sup>y″ + a·x·y′ + b·y = 0 &nbsp; <span class=\"small\">(recognition mark: the coefficient of each derivative carries exactly the matching power of x)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s267",
+   "category": "unit4",
+   "section": "Euler–Cauchy Equation",
+   "name": "Substitution",
+   "body": "<span class=\"lbl\">Substitution:</span> put x = e<sup>z</sup>; then &nbsp; xD → θ, &nbsp; x<sup>2</sup>D<sup>2</sup> → θ(θ − 1), &nbsp; where θ = <span class=\"frac\"><span class=\"t\">d</span><span class=\"b\">dz</span></span> — the equation becomes a constant-coefficient equation in z, solved by the CF rules above; convert back with z = ln x at the end.",
+   "kind": "formula"
+  },
+  {
+   "id": "s268",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "Powers of i",
+   "body": "<span class=\"lbl\">Powers of i:</span> i<sup>2</sup> = −1, &nbsp; i<sup>3</sup> = −i, &nbsp; i<sup>4</sup> = 1 — the cycle repeats every 4 <span class=\"small\">(so i<sup>17</sup> = i<sup>1</sup> = i)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s269",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "z = x + iy",
+   "body": "<span class=\"lbl\">z = x + iy:</span> Re(z) = x, &nbsp; Im(z) = y, &nbsp; conjugate z̄ = x − iy",
+   "kind": "formula"
+  },
+  {
+   "id": "s270",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "Modulus",
+   "body": "<span class=\"lbl\">Modulus:</span> |z| = √(x<sup>2</sup> + y<sup>2</sup>)",
+   "kind": "formula"
+  },
+  {
+   "id": "s271",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "z · z̄",
+   "body": "z · z̄ = |z|<sup>2</sup>",
+   "kind": "formula"
+  },
+  {
+   "id": "s272",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "|z1z2|",
+   "body": "|z<sub>1</sub>z<sub>2</sub>| = |z<sub>1</sub>|·|z<sub>2</sub>|",
+   "kind": "formula"
+  },
+  {
+   "id": "s273",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "| (z1)/(z2) |",
+   "body": "|<span class=\"frac\"><span class=\"t\">z<sub>1</sub></span><span class=\"b\">z<sub>2</sub></span></span>| = <span class=\"frac\"><span class=\"t\">|z<sub>1</sub>|</span><span class=\"b\">|z<sub>2</sub>|</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s274",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "Triangle inequality",
+   "body": "<span class=\"lbl\">Triangle inequality:</span> |z<sub>1</sub> + z<sub>2</sub>| ≤ |z<sub>1</sub>| + |z<sub>2</sub>|",
+   "kind": "formula"
+  },
+  {
+   "id": "s275",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "Argument",
+   "body": "<span class=\"lbl\">Argument:</span> arg z = tan<sup>−1</sup><span class=\"frac\"><span class=\"t\">y</span><span class=\"b\">x</span></span> — <span class=\"small\">always correct it for the quadrant of the point (x, y); the principal value satisfies −π &lt; arg z ≤ π</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s276",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "Polar form",
+   "body": "<span class=\"lbl\">Polar form:</span> z = r(cos θ + i sin θ) = r·e<sup>iθ</sup>, &nbsp; where r = |z| and θ = arg z",
+   "kind": "formula"
+  },
+  {
+   "id": "s277",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "Euler's formula",
+   "body": "<span class=\"lbl\">Euler's formula:</span> e<sup>iθ</sup> = cos θ + i sin θ",
+   "kind": "formula"
+  },
+  {
+   "id": "s278",
+   "category": "unit5",
+   "section": "Complex Numbers — Foundations",
+   "name": "De Moivre's theorem",
+   "body": "<span class=\"lbl\">De Moivre's theorem:</span> (cos θ + i sin θ)<sup>n</sup> = cos(nθ) + i sin(nθ)",
+   "kind": "formula"
+  },
+  {
+   "id": "s279",
+   "category": "unit5",
+   "section": "Analytic Functions and the Cauchy–Riemann Equations",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>f(z) = u + iv is <b>analytic</b> in a region if it is differentiable at every point of that region. The working test is the pair of <b>Cauchy–Riemann (C–R) equations</b>: analyticity ⇒ C–R hold (and where the partial derivatives are continuous, C–R holding is also sufficient). A further fact used constantly: <b>the derivative of an analytic function is itself analytic</b>.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s280",
+   "category": "unit5",
+   "section": "Analytic Functions and the Cauchy–Riemann Equations",
+   "name": "C–R equations (Cartesian)",
+   "body": "<span class=\"lbl\">C–R equations (Cartesian):</span> <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> = <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂y</span></span> &nbsp;&nbsp; and &nbsp;&nbsp; <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂y</span></span> = − <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂x</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s281",
+   "category": "unit5",
+   "section": "Analytic Functions and the Cauchy–Riemann Equations",
+   "name": "C–R equations (Polar)",
+   "body": "<span class=\"lbl\">C–R equations (Polar):</span> <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂r</span></span> = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">r</span></span><span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂θ</span></span> &nbsp;&nbsp; and &nbsp;&nbsp; <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂r</span></span> = − <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">r</span></span><span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂θ</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s282",
+   "category": "unit5",
+   "section": "Analytic Functions and the Cauchy–Riemann Equations",
+   "name": "f′(z) from C–R",
+   "body": "<span class=\"lbl\">f′(z) from C–R:</span> f′(z) = <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> + i <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂x</span></span> = <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> − i <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂y</span></span> = <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂y</span></span> + i <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂x</span></span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s283",
+   "category": "unit5",
+   "section": "Harmonic Functions and Conjugates",
+   "name": "THEORY",
+   "body": "<span class=\"th\">THEORY:</span>\n<p>A function is <b>harmonic</b> if it satisfies <b>Laplace's equation</b> <span class=\"frac\"><span class=\"t\">∂<sup>2</sup>u</span><span class=\"b\">∂x<sup>2</sup></span></span> + <span class=\"frac\"><span class=\"t\">∂<sup>2</sup>u</span><span class=\"b\">∂y<sup>2</sup></span></span> = 0. If f = u + iv is analytic, <b>both u and v are harmonic</b>, and v is called the <b>harmonic conjugate</b> of u.</p>\n<p><b>Finding the conjugate v from u:</b> write dv = <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂x</span></span> dx + <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂y</span></span> dy, replace <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂x</span></span> by −<span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂y</span></span> and <span class=\"frac\"><span class=\"t\">∂v</span><span class=\"b\">∂y</span></span> by <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> (from C–R), then integrate: v = ∫ −<span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂y</span></span> dx + ∫ (terms of <span class=\"frac\"><span class=\"t\">∂u</span><span class=\"b\">∂x</span></span> free of x) dy + C.</p>\n<p><b>Milne–Thomson method (constructing f(z) from u or v):</b> compute u<sub>x</sub> and u<sub>y</sub>, then put <b>x → z, y → 0</b> in them: f′(z) = u<sub>x</sub>(z, 0) − i·u<sub>y</sub>(z, 0). Integrate w.r.t. z to get f(z) (a real constant may remain undetermined). If u − v or u + v is given instead, first recover u using u = <span class=\"frac\"><span class=\"t\">(u + v) + (u − v)</span><span class=\"b\">2</span></span>-type relations, then apply the same method.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s284",
+   "category": "unit5",
+   "section": "Complex Integration — Cauchy's Theorems and Formulas",
+   "name": "Line integral",
+   "body": "<span class=\"lbl\">Line integral:</span> ∫<sub>C</sub> f(z) dz — evaluated by parametrising the curve (e.g. z = z(t)) or by using the theorems below",
+   "kind": "formula"
+  },
+  {
+   "id": "s285",
+   "category": "unit5",
+   "section": "Complex Integration — Cauchy's Theorems and Formulas",
+   "name": "ML-inequality",
+   "body": "<span class=\"lbl\">ML-inequality:</span> | ∫<sub>C</sub> f(z) dz | ≤ M · L &nbsp; <span class=\"small\">(M = maximum of |f| on C, L = length of C)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s286",
+   "category": "unit5",
+   "section": "Complex Integration — Cauchy's Theorems and Formulas",
+   "name": "THEORY — Cauchy's Integral Theorem",
+   "body": "<span class=\"th\">THEORY — Cauchy's Integral Theorem:</span>\n<p>If f(z) is <b>analytic</b> in a simply connected region, then around <b>every closed curve</b> C in that region, ∮<sub>C</sub> f(z) dz = <b>0</b>. Consequence used in problems: the integral between two points is independent of the path, as long as the function stays analytic in between.</p>",
+   "kind": "theory"
+  },
+  {
+   "id": "s287",
+   "category": "unit5",
+   "section": "Complex Integration — Cauchy's Theorems and Formulas",
+   "name": "∮ dz",
+   "body": "<span class=\"lbl\">∮ <span class=\"frac\"><span class=\"t\">dz</span><span class=\"b\">z − a</span></span></span> = 2πi &nbsp; <span class=\"small\">(if a lies <b>inside</b> C; if a is outside C, the value is 0)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s288",
+   "category": "unit5",
+   "section": "Complex Integration — Cauchy's Theorems and Formulas",
+   "name": "∮ dz (2)",
+   "body": "<span class=\"lbl\">∮ <span class=\"frac\"><span class=\"t\">dz</span><span class=\"b\">(z − a)<sup>n</sup></span></span></span> = 0 &nbsp; <span class=\"small\">(for every integer n ≥ 2, even when a is inside C)</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s289",
+   "category": "unit5",
+   "section": "Complex Integration — Cauchy's Theorems and Formulas",
+   "name": "Cauchy's Integral Formula",
+   "body": "<span class=\"lbl\">Cauchy's Integral Formula:</span> f(a) = <span class=\"frac\"><span class=\"t\">1</span><span class=\"b\">2πi</span></span> ∮ <span class=\"frac\"><span class=\"t\">f(z)</span><span class=\"b\">z − a</span></span> dz &nbsp; <span class=\"small\">— the value at one interior point is fixed by the values on the boundary</span>",
+   "kind": "formula"
+  },
+  {
+   "id": "s290",
+   "category": "unit5",
+   "section": "Complex Integration — Cauchy's Theorems and Formulas",
+   "name": "Cauchy's Formula for derivatives",
+   "body": "<span class=\"lbl\">Cauchy's Formula for derivatives:</span> f<sup>(n)</sup>(a) = <span class=\"frac\"><span class=\"t\">n!</span><span class=\"b\">2πi</span></span> ∮ <span class=\"frac\"><span class=\"t\">f(z)</span><span class=\"b\">(z − a)<sup>n+1</sup></span></span> dz",
+   "kind": "formula"
+  },
+  {
+   "id": "s291",
+   "category": "unit5",
+   "section": "Complex Integration — Cauchy's Theorems and Formulas",
+   "name": "RULE — How Unit V problems are solved",
+   "body": "<span class=\"th\">RULE — How Unit V problems are solved:</span>\n<p>(1) Factor the denominator and find which singular points lie <b>inside</b> the given curve (|z − a| &lt; radius tests). (2) Points outside contribute 0. (3) For each inside point, split by partial fractions into terms of the form <span class=\"frac\"><span class=\"t\">f(z)</span><span class=\"b\">(z − a)<sup>n+1</sup></span></span> and apply Cauchy's formula (n = 0) or the derivative formula (n ≥ 1). (4) Add the contributions and multiply out the 2πi factors carefully — most errors in this unit are sign and 2πi errors, not concept errors.</p>",
+   "kind": "theory"
+  }
+ ]
+}
