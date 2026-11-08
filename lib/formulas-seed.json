@@ -178,7 +178,7 @@
   {
    "id": "s17",
    "category": "basics-algebra",
-   "section": "Quadratic Equation — ax2 + bx + c = 0",
+   "section": "Quadratic Equation — ax² + bx + c = 0",
    "name": "Roots",
    "body": "<span class=\"lbl\">Roots:</span> &nbsp; x = <span class=\"frac\"><span class=\"t\">−b ± √(b<sup>2</sup> − 4ac)</span><span class=\"b\">2a</span></span>",
    "kind": "formula"
@@ -186,7 +186,7 @@
   {
    "id": "s18",
    "category": "basics-algebra",
-   "section": "Quadratic Equation — ax2 + bx + c = 0",
+   "section": "Quadratic Equation — ax² + bx + c = 0",
    "name": "Sum of roots",
    "body": "<span class=\"lbl\">Sum of roots:</span> α + β = <span class=\"frac\"><span class=\"t\">−b</span><span class=\"b\">a</span></span> &nbsp;&nbsp;&nbsp; <span class=\"lbl\">Product of roots:</span> αβ = <span class=\"frac\"><span class=\"t\">c</span><span class=\"b\">a</span></span> &nbsp;&nbsp;&nbsp; <span class=\"lbl\">Equation from roots:</span> x<sup>2</sup> − (α + β)x + αβ = 0",
    "kind": "formula"
@@ -194,7 +194,7 @@
   {
    "id": "s19",
    "category": "basics-algebra",
-   "section": "Quadratic Equation — ax2 + bx + c = 0",
+   "section": "Quadratic Equation — ax² + bx + c = 0",
    "name": "THEORY — The Discriminant D = b2 − 4ac decides the nature of the roots",
    "body": "<span class=\"th\">THEORY — The Discriminant D = b<sup>2</sup> − 4ac decides the nature of the roots:</span>\n<ul>\n<li><b>D &gt; 0</b> → two real and distinct roots</li>\n<li><b>D = 0</b> → two equal roots, α = β = −b/2a</li>\n<li><b>D &lt; 0</b> → no real roots (roots are complex conjugates)</li>\n</ul>",
    "kind": "theory"
