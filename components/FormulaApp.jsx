@@ -17,6 +17,9 @@ export default function FormulaApp({ initialData }) {
   const [data, setData] = useState(initialData);
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState("all");
+  const [section, setSection] = useState("");
+  const [sideOpen, setSideOpen] = useState(false);
+  const [expanded, setExpanded] = useState({});
   const [me, setMe] = useState(null);
   const [modal, setModal] = useState(null); // {type:'edit'|'delete', entry, form}
   const [saving, setSaving] = useState(false);
@@ -74,13 +77,52 @@ export default function FormulaApp({ initialData }) {
     );
     Object.values(cardRefs.current).forEach((el) => el && obs.observe(el));
     return () => obs.disconnect();
-  }, [data, filter, q]);
+  }, [data, filter, q, section]);
+
+  const sectionsByCat = useMemo(() => {
+    const map = {};
+    (data?.entries || []).forEach((e) => {
+      const s = e.section || "General";
+      if (!map[e.category]) map[e.category] = [];
+      if (!map[e.category].includes(s)) map[e.category].push(s);
+    });
+    return map;
+  }, [data]);
+
+  const sideGroups = useMemo(() => {
+    const groups = [];
+    const basics = categories.filter((c) => BASICS.includes(c.slug));
+    const units = categories.filter((c) => ["unit1", "unit2", "unit3", "unit4", "unit5"].includes(c.slug));
+    const rest = categories.filter((c) => !basics.includes(c) && !units.includes(c));
+    if (basics.length) groups.push({ label: "Foundation — Class 11–12 Basics", cats: basics });
+    if (units.length) groups.push({ label: "M1 — Engineering Mathematics-I", cats: units });
+    const byGroup = {};
+    rest.forEach((c) => {
+      const g = c.group || "More";
+      (byGroup[g] = byGroup[g] || []).push(c);
+    });
+    Object.entries(byGroup).forEach(([label, cats]) => groups.push({ label, cats }));
+    return groups;
+  }, [categories]);
+
+  function pickCategory(f) {
+    setFilter(f);
+    setSection("");
+    setSideOpen(false);
+  }
+  function pickSection(slug, sec) {
+    setFilter(slug);
+    setSection(sec);
+    setSideOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   const visible = useMemo(() => {
     if (!data) return [];
     let list = data.entries;
     if (filter === "basics") list = list.filter((e) => BASICS.includes(e.category));
     else if (filter !== "all") list = list.filter((e) => e.category === filter);
+    if (section) list = list.filter((e) => (e.section || "General") === section);
     const needle = q.trim().toLowerCase();
     if (needle) {
       list = list.filter(
@@ -91,7 +133,7 @@ export default function FormulaApp({ initialData }) {
       );
     }
     return list;
-  }, [data, filter, q]);
+  }, [data, filter, q, section]);
 
   const grouped = useMemo(() => {
     const order = [...ORDER, ...categories.map((c) => c.slug).filter((s) => !ORDER.includes(s))];
@@ -315,11 +357,12 @@ export default function FormulaApp({ initialData }) {
 
       <div className="fs-nav">
         <div className="fs-nav-inner">
+          <button className="fs-browse-btn" onClick={() => setSideOpen((v) => !v)}>☰ Browse Categories &amp; Sections</button>
           <div className="fs-chips">
-            <button className={filter === "all" ? "fs-chip active" : "fs-chip"} onClick={() => setFilter("all")}>All Formulas</button>
-            <button className={filter === "basics" ? "fs-chip active" : "fs-chip"} onClick={() => setFilter("basics")}>All Basics</button>
+            <button className={filter === "all" && !section ? "fs-chip active" : "fs-chip"} onClick={() => pickCategory("all")}>All Formulas</button>
+            <button className={filter === "basics" && !section ? "fs-chip active" : "fs-chip"} onClick={() => pickCategory("basics")}>All Basics</button>
             {categories.map((c) => (
-              <button key={c.slug} className={filter === c.slug ? "fs-chip active" : "fs-chip"} onClick={() => setFilter(c.slug)}>
+              <button key={c.slug} className={filter === c.slug && !section ? "fs-chip active" : "fs-chip"} onClick={() => pickCategory(c.slug)}>
                 {c.group && c.custom ? `${c.group} · ` : ""}{c.title}
               </button>
             ))}
@@ -328,6 +371,7 @@ export default function FormulaApp({ initialData }) {
             <p className="fs-count">
               Showing <b>{visible.length}</b> of {data.entries.length} entries
               {q.trim() ? <> for “{q.trim()}”</> : null}
+              {section ? <> · Section: <b>{section}</b> (<button className="fs-clear-sec" onClick={() => setSection("")}>show all sections</button>)</> : null}
               {" · "}
               {categories.map((c, i) => (
                 <span key={c.slug}>
@@ -340,7 +384,68 @@ export default function FormulaApp({ initialData }) {
         </div>
       </div>
 
-      <main className="fs-main">
+      <div className="fs-layout">
+        <aside className={"fs-side" + (sideOpen ? " open" : "")}>
+          <div className="fs-side-inner">
+            <p className="fs-side-head">Browse — All or Specific</p>
+            <button className={"fs-side-item" + (filter === "all" && !section ? " active" : "")} onClick={() => pickCategory("all")}>
+              All Formulas <span className="fs-side-count">{data?.entries.length || 0}</span>
+            </button>
+            <button className={"fs-side-item" + (filter === "basics" && !section ? " active" : "")} onClick={() => pickCategory("basics")}>
+              All Basics
+            </button>
+            {sideGroups.map((g) => (
+              <div key={g.label}>
+                <p className="fs-side-group">{g.label}</p>
+                {g.cats.map((c) => (
+                  <div key={c.slug} className="fs-side-cat">
+                    <div className="fs-side-cat-row">
+                      <button
+                        className={"fs-side-cat-btn" + (filter === c.slug && !section ? " active" : "")}
+                        onClick={() => pickCategory(c.slug)}
+                      >
+                        {c.title}
+                      </button>
+                      <button
+                        className="fs-side-toggle"
+                        aria-label="Show sections"
+                        onClick={() => setExpanded((p) => ({ ...p, [c.slug]: !p[c.slug] }))}
+                      >
+                        {expanded[c.slug] ? "▾" : "▸"}
+                      </button>
+                    </div>
+                    {expanded[c.slug] && (
+                      <div className="fs-side-secs">
+                        {(sectionsByCat[c.slug] || []).map((s) => (
+                          <button
+                            key={s}
+                            className={"fs-side-sec" + (filter === c.slug && section === s ? " active" : "")}
+                            onClick={() => pickSection(c.slug, s)}
+                          >
+                            {s}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+            <p className="fs-side-group">More</p>
+            <button
+              className="fs-side-item"
+              onClick={() => {
+                pickCategory("all");
+                setTimeout(() => document.getElementById("syllabus")?.scrollIntoView({ behavior: "smooth" }), 60);
+              }}
+            >
+              Syllabus
+            </button>
+          </div>
+        </aside>
+        {sideOpen && <div className="fs-side-backdrop" onClick={() => setSideOpen(false)} />}
+
+      <main className="fs-main fs-main-side">
         {data && visible.length === 0 && <p className="fs-loading">No formula matched. Try a shorter search word.</p>}
         {grouped.map((g) => (
           <section key={g.slug} className="fs-cat">
@@ -413,6 +518,7 @@ export default function FormulaApp({ initialData }) {
           <p>Anyone can view. To add, edit or delete your own formulas, please login — this keeps spam away and shows who added what. This site uses analytics to understand which formulas students use most.</p>
         </footer>
       </main>
+      </div>
 
       {modal && (
         <div className="fs-modal-backdrop" onClick={() => !saving && setModal(null)}>

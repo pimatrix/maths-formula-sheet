@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { dbJson } from "../../../lib/supabase";
+import { dbJson, isAdminEmail } from "../../../lib/supabase";
 import { parseUA } from "../../../lib/ua";
 
 export const dynamic = "force-dynamic";
@@ -15,6 +15,8 @@ export async function POST(req) {
   } catch {
     return NextResponse.json({ ok: false });
   }
+  // Admins' own activity is excluded from analytics.
+  if (isAdminEmail(body.user_email)) return NextResponse.json({ ok: true, skipped: "admin" });
   const ua = String(body.ua || header(req, "user-agent") || "");
   const parsed = parseUA(ua);
   const ip = (header(req, "x-forwarded-for") || "").split(",")[0].trim();

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireUser, isAdmin, dbJson } from "../../../../lib/supabase";
+import { requireUser, isAdmin, isAdminEmail, dbJson } from "../../../../lib/supabase";
 import seed from "../../../../lib/formulas-seed.json";
 
 export const dynamic = "force-dynamic";
@@ -39,7 +39,8 @@ export async function GET(req) {
     dbJson("fs_syllabus?select=id"),
     dbJson("fs_events?select=*&order=created_at.desc&limit=6000"),
   ]);
-  const ev = events || [];
+  // The admin's own activity never appears in analytics.
+  const ev = (events || []).filter((e) => !isAdminEmail(e.user_email));
   const pageviews = ev.filter((e) => e.type === "pageview");
   const views = ev.filter((e) => e.type === "formula_view");
   const shares = ev.filter((e) => e.type === "share");

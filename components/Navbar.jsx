@@ -46,6 +46,7 @@ export default function Navbar() {
           )}
           {me === undefined ? null : me ? (
             <>
+              <Link className="fs-navlink" href="/profile">My Profile</Link>
               <span className="fs-user-chip">{me.user.name || me.user.email}</span>
               <button className="fs-navbtn" onClick={onLogout}>Logout</button>
             </>

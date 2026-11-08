@@ -54,7 +54,18 @@ export default function DashboardPage() {
     setBusyId("");
   }
 
-  if (state === "loading") return <div className="fs-page"><p>Loading dashboard…</p></div>;
+  if (state === "loading")
+    return (
+      <div className="fs-page">
+        <p className="fs-loading" style={{ paddingBottom: 10 }}><span className="fs-spinner dark" /> Loading dashboard…</p>
+        <div className="fs-stat-grid">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="fs-skel fs-skel-card" style={{ minHeight: 84 }} />
+          ))}
+        </div>
+        <div className="fs-skel fs-skel-card" style={{ minHeight: 220 }} />
+      </div>
+    );
   if (state === "denied")
     return (
       <div className="fs-page">
@@ -82,7 +93,7 @@ export default function DashboardPage() {
   return (
     <div className="fs-page">
       <h2 style={{ color: "#143a66", margin: "4px 0 0" }}>Admin Dashboard</h2>
-      <p style={{ color: "#5a6b7f", margin: "4px 0 0" }}>Everything happening on the formula site — users, contributions and analytics. Times are IST.</p>
+      <p style={{ color: "#5a6b7f", margin: "4px 0 0" }}>Everything happening on the formula site — users, contributions and analytics. Times are IST. Your own (admin) visits are not counted in these analytics.</p>
 
       <div className="fs-stat-grid">
         {stats.map(([lbl, num]) => (
@@ -182,11 +193,13 @@ export default function DashboardPage() {
       <h3 className="fs-dash-h">Users & admins</h3>
       <div className="fs-table-wrap">
         <table className="fs-table">
-          <thead><tr><th>Email</th><th>Role</th><th>Joined</th><th>Action</th></tr></thead>
+          <thead><tr><th>Email</th><th>Studies at</th><th>Class / Year</th><th>Role</th><th>Joined</th><th>Action</th></tr></thead>
           <tbody>
             {users.map((u) => (
               <tr key={u.id}>
                 <td>{u.email}</td>
+                <td>{u.institution || "—"}</td>
+                <td>{u.study_level || "—"}</td>
                 <td>{u.role}{u.lockedAdmin ? " (permanent)" : ""}</td>
                 <td>{formatDateTime(u.created_at)}</td>
                 <td>
@@ -200,7 +213,7 @@ export default function DashboardPage() {
                 </td>
               </tr>
             ))}
-            {users.length === 0 && <tr><td colSpan={4}>No registered users yet.</td></tr>}
+            {users.length === 0 && <tr><td colSpan={6}>No registered users yet.</td></tr>}
           </tbody>
         </table>
       </div>

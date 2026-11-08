@@ -21,6 +21,8 @@ export async function GET(req) {
       email: p.email,
       role: isAdminEmail(p.email) ? "admin" : p.role,
       lockedAdmin: isAdminEmail(p.email),
+      institution: p.institution || "",
+      study_level: p.study_level || "",
       created_at: p.created_at,
     })),
   });
