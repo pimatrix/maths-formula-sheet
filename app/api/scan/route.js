@@ -5,7 +5,8 @@ export const dynamic = "force-dynamic";
 export const preferredRegion = "bom1";
 export const maxDuration = 60;
 
-const MODELS = ["gemini-3.8-flash", "gemini-3.8-flash", "gemini-2.5-flash"];
+const MODELS = ["gemini-3.8-flash", "gemini-3.8-flash"];
+const TIMEOUTS = [35000, 22000];
 
 async function callGemini(model, key, payload, timeoutMs) {
   const ctrl = new AbortController();
@@ -83,13 +84,15 @@ export async function POST(req) {
       responseMimeType: "application/json",
       temperature: 0.2,
       maxOutputTokens: 1500,
+      thinkingConfig: { thinkingBudget: 0 },
     },
   };
 
   const attempts = [];
-  for (const model of MODELS) {
+  for (let i = 0; i < MODELS.length; i++) {
+    const model = MODELS[i];
     try {
-      const { r, d } = await callGemini(model, key, payload, 20000);
+      const { r, d } = await callGemini(model, key, payload, TIMEOUTS[i] || 20000);
       if (!r.ok) {
         attempts.push(
           `${model}: HTTP ${r.status} ${d?.error?.message || ""}`.slice(0, 180)
