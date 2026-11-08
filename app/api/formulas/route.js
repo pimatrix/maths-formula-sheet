@@ -4,6 +4,71 @@ import { getAllCategories, getAllEntries, getAllSyllabus } from "../../../lib/da
 
 export const dynamic = "force-dynamic";
 export const preferredRegion = "bom1";
+export const maxDuration = 60;
+
+// When a formula is added with the detail fields (about / symbols / example)
+// left empty, the AI fills them once, at add time — so no entry is ever
+// left without its explanation. Best-effort: any failure just saves the
+// entry as submitted.
+async function autofillDetails(v) {
+  if (v.about && v.symbols && v.example) return;
+  const key = process.env.GEMINI_API_KEY;
+  if (!key) return;
+  const prompt = `A student added this entry to a maths formula sheet.
+Name: ${v.name}
+${v.kind === "theory" ? "Theory text" : "Formula"} (FormulaText markup): ${v.formula}
+Topic/section: ${v.section || "(general)"}
+
+Reply with ONLY a JSON object (no markdown fences) with these string fields:
+- "about": 1-2 simple sentences — what this is used for / what it means.
+- "symbols": the meaning of each symbol, one per line as "x = meaning" (empty string if there are no symbols worth explaining).
+- "example": one short, fully solved numeric example showing it in use.
+Write formulas inside these fields in FormulaText markup (\\frac{a}{b}, x^{2}, \\sqrt{...}, \\pi). Simple English.
+IMPORTANT: valid JSON — escape every backslash as \\\\ (write \\\\frac, \\\\sqrt).`;
+  const models = ["gemini-3.5-flash-lite", "gemini-3.8-flash"];
+  for (const model of models) {
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 20000);
+      const r = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              responseMimeType: "application/json",
+              temperature: 0.3,
+              maxOutputTokens: 900,
+            },
+          }),
+          signal: ctrl.signal,
+        }
+      ).finally(() => clearTimeout(t));
+      if (!r.ok) continue;
+      const d = await r.json().catch(() => null);
+      const text = (d?.candidates?.[0]?.content?.parts || [])
+        .map((p) => p.text || "")
+        .join("")
+        .replace(/^```(?:json)?\s*/i, "")
+        .replace(/\s*```$/, "");
+      if (!text) continue;
+      let parsed;
+      try {
+        parsed = JSON.parse(text);
+      } catch {
+        continue;
+      }
+      if (!v.about && parsed.about) v.about = String(parsed.about).slice(0, 2000);
+      if (!v.symbols && parsed.symbols) v.symbols = String(parsed.symbols).slice(0, 2000);
+      if (!v.example && parsed.example) v.example = String(parsed.example).slice(0, 4000);
+      return;
+    } catch {
+      // try the next model
+    }
+  }
+}
 
 export async function GET() {
   const [categories, entries, syllabus] = await Promise.all([
@@ -71,6 +136,7 @@ export async function POST(req) {
   const v = clean(body);
   const err = validate(v, categories);
   if (err) return NextResponse.json({ error: err }, { status: 400 });
+  await autofillDetails(v).catch(() => {});
   const rows = await dbJson("fs_formulas", {
     method: "POST",
     headers: { Prefer: "return=representation" },
