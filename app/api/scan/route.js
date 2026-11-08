@@ -97,7 +97,7 @@ export async function POST(req) {
   const { user } = await requireUser(req);
   if (!user)
     return NextResponse.json(
-      { error: "Photo scan ke liye pehle login karo." },
+      { error: "Please log in to use the photo scan." },
       { status: 401 }
     );
   const key = process.env.GEMINI_API_KEY;
