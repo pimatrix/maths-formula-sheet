@@ -41,6 +41,7 @@ export default function Navbar() {
         <div className="fs-navlinks">
           <Link className="fs-navlink" href="/">Formulas</Link>
           <Link className="fs-navlink cta" href="/add">+ Add Formula</Link>
+          {me ? <Link className="fs-navlink" href="/add-class">+ Add Class</Link> : null}
           {me && me.role === "admin" && (
             <Link className="fs-navlink admin" href="/dashboard">Dashboard</Link>
           )}

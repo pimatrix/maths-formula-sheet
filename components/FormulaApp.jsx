@@ -16,6 +16,18 @@ function stripHtml(html) {
 export default function FormulaApp({ initialData }) {
   const [data, setData] = useState(initialData);
   const [q, setQ] = useState("");
+  const [dq, setDq] = useState("");
+  useEffect(() => {
+    const t = setTimeout(() => setDq(q), 120);
+    return () => clearTimeout(t);
+  }, [q]);
+  const searchIndex = useMemo(() => {
+    const m = {};
+    (data?.entries || []).forEach((e) => {
+      m[e.id] = `${e.name} ${e.section || ""} ${stripHtml(e.body)}`;
+    });
+    return m;
+  }, [data]);
   const [filter, setFilter] = useState("all");
   const [section, setSection] = useState("");
   const [sideOpen, setSideOpen] = useState(false);
@@ -41,6 +53,8 @@ export default function FormulaApp({ initialData }) {
 
   useEffect(() => {
     fetchMe().then(setMe);
+    const catParam = new URLSearchParams(window.location.search).get("cat");
+    if (catParam) setFilter(catParam);
     const added = new URLSearchParams(window.location.search).get("added");
     if (added) {
       setHighlightId(added);
@@ -123,17 +137,12 @@ export default function FormulaApp({ initialData }) {
     if (filter === "basics") list = list.filter((e) => BASICS.includes(e.category));
     else if (filter !== "all") list = list.filter((e) => e.category === filter);
     if (section) list = list.filter((e) => (e.section || "General") === section);
-    const needle = q.trim().toLowerCase();
+    const needle = dq.trim().toLowerCase();
     if (needle) {
-      list = list.filter(
-        (e) =>
-          e.name.toLowerCase().includes(needle) ||
-          (e.section || "").toLowerCase().includes(needle) ||
-          stripHtml(e.body).includes(needle)
-      );
+      list = list.filter((e) => (searchIndex[e.id] || "").includes(needle));
     }
     return list;
-  }, [data, filter, q, section]);
+  }, [data, filter, dq, section, searchIndex]);
 
   const grouped = useMemo(() => {
     const order = [...ORDER, ...categories.map((c) => c.slug).filter((s) => !ORDER.includes(s))];
@@ -161,7 +170,8 @@ export default function FormulaApp({ initialData }) {
 
   const visibleSyllabus = useMemo(() => {
     if (!data) return [];
-    if (filter === "all" || filter === "basics") return data.syllabus;
+    if (filter === "all") return data.syllabus;
+    if (filter === "basics") return []; // syllabus belongs to Engineering Mathematics (M1)
     return data.syllabus.filter((s) => s.category === filter);
   }, [data, filter]);
 
@@ -397,6 +407,17 @@ export default function FormulaApp({ initialData }) {
             {sideGroups.map((g) => (
               <div key={g.label}>
                 <p className="fs-side-group">{g.label}</p>
+                {g.label.startsWith("M1") && (
+                  <button
+                    className="fs-side-item fs-side-syllabus"
+                    onClick={() => {
+                      pickCategory("all");
+                      setTimeout(() => document.getElementById("syllabus")?.scrollIntoView({ behavior: "smooth" }), 60);
+                    }}
+                  >
+                    Syllabus — Engineering Mathematics
+                  </button>
+                )}
                 {g.cats.map((c) => (
                   <div key={c.slug} className="fs-side-cat">
                     <div className="fs-side-cat-row">
@@ -431,16 +452,6 @@ export default function FormulaApp({ initialData }) {
                 ))}
               </div>
             ))}
-            <p className="fs-side-group">More</p>
-            <button
-              className="fs-side-item"
-              onClick={() => {
-                pickCategory("all");
-                setTimeout(() => document.getElementById("syllabus")?.scrollIntoView({ behavior: "smooth" }), 60);
-              }}
-            >
-              Syllabus
-            </button>
           </div>
         </aside>
         {sideOpen && <div className="fs-side-backdrop" onClick={() => setSideOpen(false)} />}
@@ -460,7 +471,7 @@ export default function FormulaApp({ initialData }) {
         ))}
 
         <section className="fs-cat" id="syllabus">
-          <h2 className="fs-cat-title">Syllabus</h2>
+          <h2 className="fs-cat-title">Syllabus — Engineering Mathematics (BTech 1st Year · 1st Semester)</h2>
           {visibleSyllabus.length === 0 ? (
             <p className="fs-count">No syllabus added yet for this view.</p>
           ) : (

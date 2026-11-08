@@ -29,7 +29,17 @@ export default function AddPage() {
   }
 
   useEffect(() => {
-    loadCategories();
+    loadCategories().then((cats) => {
+      // Preselect a class/category when arriving from "Add Class" (?category=slug)
+      try {
+        if (!sessionStorage.getItem(PENDING_KEY)) {
+          const want = new URLSearchParams(window.location.search).get("category");
+          if (want && cats.some((c) => c.slug === want)) {
+            setForm((f) => ({ ...f, category: want }));
+          }
+        }
+      } catch {}
+    });
     // Restore any pending submission (user filled the form, then logged in)
     try {
       const raw = sessionStorage.getItem(PENDING_KEY);

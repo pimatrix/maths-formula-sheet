@@ -5,7 +5,8 @@ import ShareButton from "../../../components/ShareButton";
 import { getAllCategories, getAllEntries, getAllSyllabus } from "../../../lib/data";
 import { formulaTextToHtml } from "../../../lib/render";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 30;
+export const preferredRegion = "bom1";
 
 export async function generateMetadata({ params }) {
   const categories = await getAllCategories();

@@ -24,6 +24,8 @@ export const metadata = {
   },
 };
 
+export const preferredRegion = "bom1";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

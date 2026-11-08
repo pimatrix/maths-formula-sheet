@@ -3,6 +3,7 @@ import { requireUser, isAdmin, db, dbJson } from "../../../lib/supabase";
 import { getAllCategories, getAllEntries, getAllSyllabus } from "../../../lib/data";
 
 export const dynamic = "force-dynamic";
+export const preferredRegion = "bom1";
 
 export async function GET() {
   const [categories, entries, syllabus] = await Promise.all([

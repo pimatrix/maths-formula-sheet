@@ -3,6 +3,7 @@ import { requireUser, isAdmin, isAdminEmail, dbJson } from "../../../../lib/supa
 import seed from "../../../../lib/formulas-seed.json";
 
 export const dynamic = "force-dynamic";
+export const preferredRegion = "bom1";
 
 function topCounts(items, keyFn, limit = 10) {
   const map = new Map();

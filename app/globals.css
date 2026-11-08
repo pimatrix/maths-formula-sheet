@@ -68,7 +68,9 @@
 .fs-card {
   background: #fff; border: 1px solid #dde5ee; border-radius: 10px;
   padding: 12px 14px; box-shadow: 0 1px 2px rgba(20, 58, 102, 0.05);
+  content-visibility: auto; contain-intrinsic-size: auto 120px;
 }
+.fs-side-syllabus { margin: 2px 0 4px; color: #b45309; border: 1.5px dashed #f0dcae; background: #fdf6e9; }
 .fs-card h4 { margin: 0 0 6px; font-size: 14.5px; color: #143a66; font-weight: 700; }
 .fs-new { color: #b45309; font-weight: 600; font-size: 12.5px; }
 .fs-card-actions { display: flex; gap: 7px; margin-top: 9px; }

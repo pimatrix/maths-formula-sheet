@@ -3,6 +3,7 @@ import { dbJson, isAdminEmail } from "../../../lib/supabase";
 import { parseUA } from "../../../lib/ua";
 
 export const dynamic = "force-dynamic";
+export const preferredRegion = "bom1";
 
 function header(req, name) {
   return req.headers.get(name) || "";

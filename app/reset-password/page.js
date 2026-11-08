@@ -41,6 +41,8 @@ export default function ResetPasswordPage() {
     <div className="fs-auth-wrap">
       <div className="fs-auth-card">
         <h2>Set a new password</h2>
+        <p className="sub">Tum email me aaye hue reset link se yaha pahunche ho. Neeche apna <b>naya password</b> do baar
+          daalo aur save kar do — uske baad tum usi naye password se login kar sakte ho. Ye link ek hi baar kaam karta hai.</p>
         {!ready ? (
           <p className="sub"><span className="fs-spinner dark" /> Checking your reset link…</p>
         ) : done ? (
