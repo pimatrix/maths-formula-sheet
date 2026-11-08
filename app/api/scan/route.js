@@ -86,12 +86,14 @@ export async function POST(req) {
     },
   };
 
-  let lastErr = "";
+  const attempts = [];
   for (const model of MODELS) {
     try {
       const { r, d } = await callGemini(model, key, payload, 20000);
       if (!r.ok) {
-        if (!lastErr) lastErr = d?.error?.message || `AI error (${r.status})`;
+        attempts.push(
+          `${model}: HTTP ${r.status} ${d?.error?.message || ""}`.slice(0, 180)
+        );
         continue;
       }
       const text = (d?.candidates?.[0]?.content?.parts || [])
@@ -99,7 +101,19 @@ export async function POST(req) {
         .join("")
         .replace(/^```(?:json)?\s*/i, "")
         .replace(/\s*```$/, "");
-      const parsed = JSON.parse(text);
+      if (!text) {
+        attempts.push(
+          `${model}: empty (finish=${d?.candidates?.[0]?.finishReason || "?"}, block=${d?.promptFeedback?.blockReason || "-"})`
+        );
+        continue;
+      }
+      let parsed;
+      try {
+        parsed = JSON.parse(text);
+      } catch {
+        attempts.push(`${model}: bad JSON "${text.slice(0, 60)}"`);
+        continue;
+      }
       if (parsed.error)
         return NextResponse.json({ error: String(parsed.error) }, { status: 422 });
       return NextResponse.json({
@@ -111,12 +125,14 @@ export async function POST(req) {
         symbols: String(parsed.symbols || "").slice(0, 2000),
         example: String(parsed.example || "").slice(0, 4000),
       });
-    } catch {
-      if (!lastErr) lastErr = "AI se sahi jawab nahi aaya. Dobara try karo.";
+    } catch (e) {
+      attempts.push(
+        `${model}: ${e && e.name === "AbortError" ? "timeout" : "fetch error"}`
+      );
     }
   }
   return NextResponse.json(
-    { error: lastErr || "AI scan failed. Please try again." },
+    { error: "AI scan failed — " + attempts.join(" | ").slice(0, 600) },
     { status: 502 }
   );
 }
