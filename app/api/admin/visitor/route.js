@@ -34,6 +34,12 @@ export async function GET(req) {
   const ev = (rows || []).filter((e) => !isAdminEmail(e.user_email));
   if (ev.length === 0)
     return NextResponse.json({ error: "No activity found." }, { status: 404 });
+  // "Presence" rows are the app's 60-second "still here" heartbeat
+  // signals — they prove the visitor was active, but they are not
+  // actions. Keep them out of the timeline and the action total;
+  // report them separately as an approximate active duration.
+  const presenceCount = ev.filter((e) => e.type === "presence").length;
+  const actions = ev.filter((e) => e.type !== "presence");
   const latest = ev[0];
   const first = ev[ev.length - 1];
   const t = new Date(latest.created_at || 0).getTime();
@@ -50,9 +56,10 @@ export async function GET(req) {
       last_seen: latest.created_at,
       active_now: t >= Date.now() - 15 * 60000,
       minutes_ago: Math.max(0, Math.round((Date.now() - t) / 60000)),
-      total: ev.length,
+      total: actions.length,
+      presence_signals: presenceCount,
     },
-    events: ev.map((e) => ({
+    events: actions.map((e) => ({
       type: e.type,
       path: e.path,
       formula_name: e.formula_name,
