@@ -97,8 +97,8 @@ export async function GET(req) {
     const r = await fetch(`${SB_URL}/storage/v1/object/list/syllabus`, {
       method: "POST",
       headers: {
-        apikey: <redacted>
-        Authorization: <redacted>
+        apikey: SB_SERVICE,
+        Authorization: 'Bearer ' + SB_SERVICE,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ prefix: "", limit: 1000, offset: 0 }),
