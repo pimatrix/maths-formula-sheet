@@ -1,6 +1,28 @@
 import { NextResponse } from "next/server";
-import { dbJson, isAdminEmail } from "../../../lib/supabase";
+import { dbJson, isAdminEmail, SB_URL, SB_SERVICE } from "../../../lib/supabase";
 import { parseUA } from "../../../lib/ua";
+
+// Small in-memory cache so the opt-out check does not hit the Auth API
+// for every event.
+const optOutCache = new Map();
+async function userOptedOut(userId) {
+  if (!userId) return false;
+  const hit = optOutCache.get(userId);
+  if (hit && Date.now() - hit.at < 60000) return hit.out;
+  let out = false;
+  try {
+    const r = await fetch(`${SB_URL}/auth/v1/admin/users/${userId}`, {
+      headers: { apikey: SB_SERVICE, Authorization: `Bearer ${SB_SERVICE}` },
+      cache: "no-store",
+    });
+    if (r.ok) {
+      const u = await r.json();
+      out = u?.user_metadata?.analytics_opt_out === true;
+    }
+  } catch {}
+  optOutCache.set(userId, { at: Date.now(), out });
+  return out;
+}
 
 export const dynamic = "force-dynamic";
 export const preferredRegion = "bom1";
@@ -18,6 +40,9 @@ export async function POST(req) {
   }
   // Admins' own activity is excluded from analytics.
   if (isAdminEmail(body.user_email)) return NextResponse.json({ ok: true, skipped: "admin" });
+  // A signed-in user who opted out of analytics is never recorded.
+  if (body.user_id && (await userOptedOut(body.user_id)))
+    return NextResponse.json({ ok: true, skipped: "opt_out" });
   const ua = String(body.ua || header(req, "user-agent") || "");
   const parsed = parseUA(ua);
   const ip = (header(req, "x-forwarded-for") || "").split(",")[0].trim();

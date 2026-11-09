@@ -58,7 +58,53 @@ export async function GET(req) {
     days.push({ date: key, pageviews: dayPv.length, visitors: uniq(dayPv) });
   }
 
+  // Active users: anyone with an event in the last 15 minutes, grouped by
+  // signed-in email (falling back to visitor id), latest event first.
+  const cutoff = Date.now() - 15 * 60000;
+  const byKey = new Map();
+  for (const e of ev) {
+    const t = new Date(e.created_at || 0).getTime();
+    if (!t || t < cutoff) continue;
+    const key = e.user_email || e.visitor_id || e.ip;
+    if (!key) continue;
+    const prev = byKey.get(key);
+    if (!prev || t > prev.t) byKey.set(key, { t, e });
+  }
+  const activeUsers = [...byKey.values()]
+    .sort((a, b) => b.t - a.t)
+    .slice(0, 30)
+    .map(({ t, e }) => ({
+      user_email: e.user_email || null,
+      visitor: e.user_email ? null : e.visitor_id || e.ip || null,
+      last_seen: e.created_at,
+      minutes_ago: Math.max(0, Math.round((Date.now() - t) / 60000)),
+      current_path: e.path || null,
+      current_formula: e.formula_name || null,
+      last_type: e.type,
+      ip: e.ip,
+      country: e.country,
+      city: e.city,
+      device: e.device,
+      model: e.model,
+      os: e.os,
+      browser: e.browser,
+      battery_level: e.battery_level,
+      battery_charging: e.battery_charging,
+      network: e.network,
+    }));
+
   return NextResponse.json({
+    activeUsers,
+    recentViews: views.slice(0, 60).map((e) => ({
+      formula_name: e.formula_name,
+      category: e.category,
+      user_email: e.user_email,
+      device: e.device,
+      os: e.os,
+      browser: e.browser,
+      country: e.country,
+      created_at: e.created_at,
+    })),
     totals: {
       users: (profiles || []).length,
       seedFormulas: seed.entries.length,
