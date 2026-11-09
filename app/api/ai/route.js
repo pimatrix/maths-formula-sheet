@@ -1,5 +1,60 @@
 import { NextResponse } from "next/server";
-import { requireUser } from "../../../lib/supabase";
+import { requireUser, isAdmin, dbJson } from "../../../lib/supabase";
+
+// Free use of the house Gemini key: 10 questions per user per day,
+// resetting at midnight IST. Counted from fs_events rows of type
+// 'ai_question' (written below on every successful answer), so there is
+// no extra table to keep in sync. Users with their own Gemini key call
+// Google directly from the app and never touch this limit.
+const DAILY_LIMIT = 10;
+
+function istDayStartIso() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const get = (t) => parts.find((x) => x.type === t).value;
+  return `${get("year")}-${get("month")}-${get("day")}T00:00:00+05:30`;
+}
+
+async function todaysAiCount(userId) {
+  const since = new Date(istDayStartIso()).toISOString();
+  const rows = await dbJson(
+    `fs_events?user_id=eq.${userId}&type=eq.ai_question&created_at=gte.${since}&select=id&limit=60`
+  );
+  return (rows || []).length;
+}
+
+async function logAiQuestion(user) {
+  await dbJson("fs_events", {
+    method: "POST",
+    body: JSON.stringify({
+      type: "ai_question",
+      user_id: user.id,
+      user_email: user.email,
+      path: "/ai-tutor",
+    }),
+  });
+}
+
+export async function GET(req) {
+  const { user, profile } = await requireUser(req);
+  if (!user)
+    return NextResponse.json(
+      { error: "Please log in to use the AI Tutor." },
+      { status: 401 }
+    );
+  const admin = isAdmin(profile, user);
+  const used = admin ? 0 : await todaysAiCount(user.id);
+  return NextResponse.json({
+    limit: DAILY_LIMIT,
+    used,
+    remaining: admin ? null : Math.max(0, DAILY_LIMIT - used),
+    unlimited: admin,
+  });
+}
 
 export const dynamic = "force-dynamic";
 export const preferredRegion = "bom1";
@@ -40,12 +95,29 @@ Rules for every answer:
 - If the question is not about maths, politely say you only help with maths.`;
 
 export async function POST(req) {
-  const { user } = await requireUser(req);
+  const { user, profile } = await requireUser(req);
   if (!user)
     return NextResponse.json(
       { error: "Please log in to use the AI Tutor." },
       { status: 401 }
     );
+  const admin = isAdmin(profile, user);
+  let usedBefore = 0;
+  if (!admin) {
+    usedBefore = await todaysAiCount(user.id);
+    if (usedBefore >= DAILY_LIMIT)
+      return NextResponse.json(
+        {
+          error:
+            "You have used all 10 of today's free AI questions. They reset at midnight (IST). To keep asking now, add your own free Gemini API key — the AI Tutor page has a key button with the steps.",
+          limit_reached: true,
+          limit: DAILY_LIMIT,
+          used: usedBefore,
+          remaining: 0,
+        },
+        { status: 429 }
+      );
+  }
   const key = process.env.GEMINI_API_KEY;
   if (!key)
     return NextResponse.json(
@@ -95,7 +167,18 @@ export async function POST(req) {
         attempts.push(`${model}: empty reply`);
         continue;
       }
-      return NextResponse.json({ ok: true, answer: text.slice(0, 8000) });
+      if (!admin) await logAiQuestion(user);
+      return NextResponse.json({
+        ok: true,
+        answer: text.slice(0, 8000),
+        usage: admin
+          ? { unlimited: true }
+          : {
+              limit: DAILY_LIMIT,
+              used: usedBefore + 1,
+              remaining: Math.max(0, DAILY_LIMIT - usedBefore - 1),
+            },
+      });
     } catch (e) {
       attempts.push(
         `${model}: ${e && e.name === "AbortError" ? "timeout" : "fetch error"}`
