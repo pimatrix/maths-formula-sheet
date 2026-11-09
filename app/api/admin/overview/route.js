@@ -47,7 +47,29 @@ export async function GET(req) {
   const shares = ev.filter((e) => e.type === "share");
   const todayStr = new Date().toISOString().slice(0, 10);
   const pvToday = pageviews.filter((e) => (e.created_at || "").slice(0, 10) === todayStr);
-  const uniq = (list) => new Set(list.map((e) => e.visitor_id || e.ip || "?")).size;
+  const identityOf = (e) =>
+    e.user_email
+      ? "u:" + e.user_email
+      : e.visitor_id
+        ? "v:" + e.visitor_id
+        : "d:" +
+          [e.ip, e.device, e.model, e.os, e.browser].map((x) => x || "").join("|");
+  const uniq = (list) => new Set(list.map(identityOf)).size;
+  // Count DISTINCT people per bucket (not raw events, which the 60 s
+  // presence heartbeat would inflate into hundreds).
+  const topPeople = (items, keyFn, limit = 10) => {
+    const buckets = new Map();
+    for (const it of items) {
+      const k = keyFn(it);
+      if (!k) continue;
+      if (!buckets.has(k)) buckets.set(k, new Set());
+      buckets.get(k).add(identityOf(it));
+    }
+    return [...buckets.entries()]
+      .map(([name, set]) => ({ name, count: set.size }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, limit);
+  };
 
   // Last 14 days
   const days = [];
@@ -123,10 +145,10 @@ export async function GET(req) {
     topFormulas: topCounts(views, (e) => e.formula_name, 12),
     topCategories: topCounts(pageviews, (e) => e.category, 10),
     topReferrers: topCounts(pageviews, (e) => hostOf(e.referrer) || "Direct / none", 10),
-    topCountries: topCounts(ev, (e) => e.country, 10),
-    topDevices: topCounts(ev, (e) => e.device, 6),
-    topOS: topCounts(ev, (e) => e.os, 8),
-    topBrowsers: topCounts(ev, (e) => e.browser, 8),
+    topCountries: topPeople(ev, (e) => e.country, 10),
+    topDevices: topPeople(ev, (e) => e.device, 6),
+    topOS: topPeople(ev, (e) => e.os, 8),
+    topBrowsers: topPeople(ev, (e) => e.browser, 8),
     recentShares: shares.slice(0, 25).map((e) => ({
       formula_name: e.formula_name,
       user_email: e.user_email,

@@ -4,28 +4,47 @@ import { requireUser, isAdmin, isAdminEmail, dbJson } from "../../../../lib/supa
 export const dynamic = "force-dynamic";
 export const preferredRegion = "bom1";
 
-// Visitors grouped from fs_events: one row per person (signed-in email
-// when known, else the anonymous visitor id, else IP). Powers the Admin
-// Dashboard's Visitors section: green = active in the last 15 minutes,
-// amber = last active earlier.
+// Identity rule (one device = one count): signed-in email wins; else
+// the persistent visitor id; else — for older events that carry no id —
+// the device combo (IP + device + model + OS + browser) so one phone
+// on one network is never split into many "visitors".
+export function identityOf(e) {
+  if (e.user_email) return "u:" + e.user_email;
+  if (e.visitor_id) return "v:" + e.visitor_id;
+  return "d:" + [e.ip, e.device, e.model, e.os, e.browser]
+    .map((x) => x || "")
+    .join("|");
+}
+
+// Visitors grouped from fs_events: one row per person/device, with the
+// signed-up user's NAME when known. Green = active in the last
+// 15 minutes, amber = last active earlier.
 export async function GET(req) {
   const { user, profile } = await requireUser(req);
   if (!user) return NextResponse.json({ error: "Please login first." }, { status: 401 });
   if (!isAdmin(profile, user))
     return NextResponse.json({ error: "Admin access only." }, { status: 403 });
 
-  const events = await dbJson("fs_events?select=*&order=created_at.desc&limit=6000");
+  const [events, profiles] = await Promise.all([
+    dbJson("fs_events?select=*&order=created_at.desc&limit=6000"),
+    dbJson("profiles?select=email,name"),
+  ]);
+  const nameByEmail = new Map(
+    (profiles || []).map((p) => [(p.email || "").toLowerCase(), p.name || null])
+  );
   const ev = (events || []).filter((e) => !isAdminEmail(e.user_email));
   const cutoff = Date.now() - 15 * 60000;
   const map = new Map();
   for (const e of ev) {
-    const key = e.user_email || e.visitor_id || e.ip;
-    if (!key) continue;
+    const key = identityOf(e);
     let v = map.get(key);
     if (!v) {
       v = {
         key,
         user_email: e.user_email || null,
+        user_name: e.user_email
+          ? nameByEmail.get(e.user_email.toLowerCase()) || null
+          : null,
         visitor_id: e.visitor_id || null,
         ip: e.ip || null,
         first_seen: e.created_at,
@@ -41,14 +60,12 @@ export async function GET(req) {
       };
       map.set(key, v);
     }
-    v.total++;
+    if (e.type !== "presence") v.total++;
     if (e.type === "pageview") v.pageviews++;
     else if (e.type === "formula_view") v.formula_views++;
     else if (e.type === "share") v.shares++;
     else if (e.type === "ai_question") v.questions++;
     if (e.created_at && e.created_at < v.first_seen) v.first_seen = e.created_at;
-    // rows arrive newest-first, so the first row seen for a visitor is
-    // their latest — its device/place fields are already the freshest.
   }
   const visitors = [...map.values()].map((v) => {
     const t = new Date(v.last_seen || 0).getTime();

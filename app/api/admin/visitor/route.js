@@ -24,6 +24,13 @@ export async function GET(req) {
     return NextResponse.json({ error: "Missing visitor identity." }, { status: 400 });
 
   const rows = await dbJson(`fs_events?${filter}&select=*&order=created_at.desc&limit=300`);
+  let profName = null;
+  if (email) {
+    const profs = await dbJson(
+      `profiles?email=eq.${encodeURIComponent(email)}&select=name`
+    );
+    if (profs && profs[0] && profs[0].name) profName = profs[0].name;
+  }
   const ev = (rows || []).filter((e) => !isAdminEmail(e.user_email));
   if (ev.length === 0)
     return NextResponse.json({ error: "No activity found." }, { status: 404 });
@@ -32,6 +39,7 @@ export async function GET(req) {
   const t = new Date(latest.created_at || 0).getTime();
   return NextResponse.json({
     info: {
+      user_name: profName,
       user_email: latest.user_email || null,
       visitor_id: latest.visitor_id || null,
       ip: latest.ip || null,
