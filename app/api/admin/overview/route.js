@@ -55,7 +55,8 @@ export async function GET(req) {
     const d = new Date(Date.now() - i * 86400000);
     const key = d.toISOString().slice(0, 10);
     const dayPv = pageviews.filter((e) => (e.created_at || "").slice(0, 10) === key);
-    days.push({ date: key, pageviews: dayPv.length, visitors: uniq(dayPv) });
+    const dayViews = views.filter((e) => (e.created_at || "").slice(0, 10) === key);
+    days.push({ date: key, pageviews: dayPv.length, visitors: uniq(dayPv), views: dayViews.length });
   }
 
   // Active users: anyone with an event in the last 15 minutes, grouped by
