@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireUser, isAdmin, db, SB_URL, SB_SERVICE } from "../../../lib/supabase";
+import { setOptOut } from "../../../lib/optout";
 
 // Writes auth user_metadata through the Supabase Admin API (service key).
 async function setUserMetadata(user, patch) {
@@ -46,6 +47,8 @@ export async function PUT(req) {
     });
     if (!okMeta)
       return NextResponse.json({ error: "Could not save your privacy choice." }, { status: 502 });
+    // Apply the choice to the tracker immediately (shared cache).
+    setOptOut(user.id, peek.analytics_opt_out);
     return NextResponse.json({ ok: true, analytics_opt_out: peek.analytics_opt_out });
   }
   if (!user) return NextResponse.json({ error: "Not logged in." }, { status: 401 });

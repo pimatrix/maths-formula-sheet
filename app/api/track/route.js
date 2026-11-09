@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
 import { dbJson, isAdminEmail, SB_URL, SB_SERVICE } from "../../../lib/supabase";
+import { getOptOut, setOptOut } from "../../../lib/optout";
 import { parseUA } from "../../../lib/ua";
 
-// Small in-memory cache so the opt-out check does not hit the Auth API
-// for every event.
-const optOutCache = new Map();
+// Opt-out check with a small shared cache (lib/optout.js), so the
+// Auth API is not hit for every event — and so /api/me can apply a
+// toggle instantly by writing the fresh value into the same cache.
 async function userOptedOut(userId) {
   if (!userId) return false;
-  const hit = optOutCache.get(userId);
-  if (hit && Date.now() - hit.at < 60000) return hit.out;
+  const hit = getOptOut(userId);
+  if (hit !== undefined) return hit;
   let out = false;
   try {
     const r = await fetch(`${SB_URL}/auth/v1/admin/users/${userId}`, {
@@ -20,7 +21,7 @@ async function userOptedOut(userId) {
       out = u?.user_metadata?.analytics_opt_out === true;
     }
   } catch {}
-  optOutCache.set(userId, { at: Date.now(), out });
+  setOptOut(userId, out);
   return out;
 }
 
