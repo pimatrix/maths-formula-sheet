@@ -45,6 +45,25 @@ export async function GET(req) {
   const pageviews = ev.filter((e) => e.type === "pageview");
   const views = ev.filter((e) => e.type === "formula_view");
   const shares = ev.filter((e) => e.type === "share");
+  // Favourites, net of un-favourites, per formula.
+  const favNet = new Map();
+  for (const e of ev) {
+    if (e.type !== "favorite_add" && e.type !== "favorite_remove") continue;
+    if (!e.formula_name) continue;
+    favNet.set(
+      e.formula_name,
+      (favNet.get(e.formula_name) || 0) + (e.type === "favorite_add" ? 1 : -1),
+    );
+  }
+  const topFavorited = [...favNet.entries()]
+    .map(([name, count]) => ({ name, count }))
+    .filter((x) => x.count > 0)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 12);
+  const favoritesTotal = [...favNet.values()].reduce(
+    (a, b) => a + Math.max(0, b),
+    0,
+  );
   const todayStr = new Date().toISOString().slice(0, 10);
   const pvToday = pageviews.filter((e) => (e.created_at || "").slice(0, 10) === todayStr);
   const identityOf = (e) =>
@@ -140,9 +159,11 @@ export async function GET(req) {
       visitorsToday: uniq(pvToday),
       formulaViews: views.length,
       shares: shares.length,
+      favorites: favoritesTotal,
     },
     days,
     topFormulas: topCounts(views, (e) => e.formula_name, 12),
+    topFavorited,
     topCategories: topCounts(pageviews, (e) => e.category, 10),
     topReferrers: topCounts(pageviews, (e) => hostOf(e.referrer) || "Direct / none", 10),
     topCountries: topPeople(ev, (e) => e.country, 10),
