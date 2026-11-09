@@ -155,19 +155,38 @@ export async function POST(req) {
   }
   const question = String(body?.question || "").trim().slice(0, 1200);
   const context = String(body?.context || "").trim().slice(0, 2500);
-  if (question.length < 2)
+  // Optional photo of the problem (data URL from the app's image
+  // picker). Gemini reads it as an inline image part.
+  let imagePart = null;
+  const rawImage = typeof body?.image === "string" ? body.image : "";
+  if (rawImage) {
+    const m = rawImage.match(/^data:(image\/(?:png|jpeg|webp));base64,([A-Za-z0-9+/=\s]+)$/);
+    if (!m || rawImage.length > 7000000)
+      return NextResponse.json(
+        { error: "That photo could not be read — please try a smaller one." },
+        { status: 400 }
+      );
+    imagePart = { inline_data: { mime_type: m[1], data: m[2] } };
+  }
+  if (question.length < 2 && !imagePart)
     return NextResponse.json(
       { error: "Please type a maths question." },
       { status: 400 }
     );
 
+  const effectiveQuestion =
+    question.length >= 2
+      ? question
+      : "Solve the problem in this photo step by step.";
   const userText = context
-    ? `The student is viewing this formula in the app:\n${context}\n\nStudent's question: ${question}`
-    : `Student's question: ${question}`;
+    ? `The student is viewing this formula in the app:\n${context}\n\nStudent's question: ${effectiveQuestion}`
+    : `Student's question: ${effectiveQuestion}`;
 
+  const parts = [{ text: userText }];
+  if (imagePart) parts.push(imagePart);
   const payload = {
     systemInstruction: { parts: [{ text: SYSTEM }] },
-    contents: [{ parts: [{ text: userText }] }],
+    contents: [{ parts }],
     generationConfig: { temperature: 0.3, maxOutputTokens: 1400 },
   };
 

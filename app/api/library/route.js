@@ -10,8 +10,8 @@ import { requireUser, SB_URL, SB_SERVICE } from "../../../lib/supabase";
 
 export const dynamic = "force-dynamic";
 
-const EMPTY = { favorites: [], folders: [] };
-const MAX_JSON = 60000;
+const EMPTY = { favorites: [], folders: [], solutions: [] };
+const MAX_JSON = 300000;
 
 function cleanLib(v) {
   if (!v || typeof v !== "object") return null;
@@ -41,7 +41,22 @@ function cleanLib(v) {
       folders.push({ id, name, items });
     }
   }
-  const out = { favorites, folders };
+  const solutions = [];
+  if (Array.isArray(v.solutions)) {
+    for (const sol of v.solutions.slice(0, 50)) {
+      if (!sol || typeof sol !== "object") continue;
+      const q = String(sol.q || "").trim().slice(0, 1200);
+      const a = String(sol.a || "").trim().slice(0, 4000);
+      if (!q || !a) continue;
+      solutions.push({
+        id: String(sol.id || "").slice(0, 40) || `s${solutions.length}`,
+        q,
+        a,
+        at: String(sol.at || "").slice(0, 40),
+      });
+    }
+  }
+  const out = { favorites, folders, solutions };
   if (JSON.stringify(out).length > MAX_JSON) return null;
   return out;
 }
