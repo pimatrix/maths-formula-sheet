@@ -1,12 +1,33 @@
 import { NextResponse } from "next/server";
 import { requireUser, isAdmin, dbJson } from "../../../lib/supabase";
 
-// Free use of the house Gemini key: 10 questions per user per day,
-// resetting at midnight IST. Counted from fs_events rows of type
-// 'ai_question' (written below on every successful answer), so there is
-// no extra table to keep in sync. Users with their own Gemini key call
-// Google directly from the app and never touch this limit.
-const DAILY_LIMIT = 10;
+// Free use of the house Gemini key: a per-user daily question limit,
+// resetting at midnight IST. The limit VALUE is set by the admin from
+// the app's Admin Dashboard (POST /api/admin/ai-limit writes an
+// 'ai_limit' row; the latest one wins; default 10) — it is NOT fixed in
+// code. Usage is counted from fs_events rows of type 'ai_question'
+// (written below on every successful answer), so there is no extra
+// table to keep in sync. Users with their own Gemini key call Google
+// directly from the app and never touch this limit.
+const DEFAULT_DAILY_LIMIT = 10;
+let _limitCache = { value: DEFAULT_DAILY_LIMIT, at: 0 };
+
+async function aiDailyLimit() {
+  const now = Date.now();
+  if (now - _limitCache.at < 60000) return _limitCache.value;
+  let value = DEFAULT_DAILY_LIMIT;
+  try {
+    const rows = await dbJson(
+      "fs_events?type=eq.ai_limit&select=formula_name,created_at&order=created_at.desc&limit=1"
+    );
+    const n = parseInt(rows?.[0]?.formula_name, 10);
+    if (Number.isFinite(n) && n >= 1 && n <= 1000) value = n;
+  } catch {
+    // keep the default when the setting cannot be read
+  }
+  _limitCache = { value, at: now };
+  return value;
+}
 
 function istDayStartIso() {
   const parts = new Intl.DateTimeFormat("en-CA", {
@@ -47,11 +68,12 @@ export async function GET(req) {
       { status: 401 }
     );
   const admin = isAdmin(profile, user);
+  const limit = await aiDailyLimit();
   const used = admin ? 0 : await todaysAiCount(user.id);
   return NextResponse.json({
-    limit: DAILY_LIMIT,
+    limit,
     used,
-    remaining: admin ? null : Math.max(0, DAILY_LIMIT - used),
+    remaining: admin ? null : Math.max(0, limit - used),
     unlimited: admin,
   });
 }
@@ -102,16 +124,17 @@ export async function POST(req) {
       { status: 401 }
     );
   const admin = isAdmin(profile, user);
+  const limit = await aiDailyLimit();
   let usedBefore = 0;
   if (!admin) {
     usedBefore = await todaysAiCount(user.id);
-    if (usedBefore >= DAILY_LIMIT)
+    if (usedBefore >= limit)
       return NextResponse.json(
         {
           error:
-            "You have used all 10 of today's free AI questions. They reset at midnight (IST). To keep asking now, add your own free Gemini API key — the AI Tutor page has a key button with the steps.",
+            `You have used all ${limit} of today's free AI questions. They reset at midnight (IST). To keep asking now, add your own free Gemini API key — the AI Tutor page has a key button with the steps.`,
           limit_reached: true,
-          limit: DAILY_LIMIT,
+          limit,
           used: usedBefore,
           remaining: 0,
         },
@@ -174,9 +197,9 @@ export async function POST(req) {
         usage: admin
           ? { unlimited: true }
           : {
-              limit: DAILY_LIMIT,
+              limit,
               used: usedBefore + 1,
-              remaining: Math.max(0, DAILY_LIMIT - usedBefore - 1),
+              remaining: Math.max(0, limit - usedBefore - 1),
             },
       });
     } catch (e) {
